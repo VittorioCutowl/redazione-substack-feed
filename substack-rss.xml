@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  <channel>
+    <title>Redazione Virtuale - Porting Substack</title>
+    <link>https://vittoriocutowl.github.io/redazione-substack-feed/</link>
+    <description>Export RSS 2.0 per porting articoli verso Substack. Le immagini sono referenziate con path relativi alla cartella di consegna.</description>
+    <language>it</language>
+    <lastBuildDate>Wed, 08 Jul 2026 06:45:00 GMT</lastBuildDate>
+    <item>
+      <title>AI coding agent: cosa cambia davvero per senior, junior e team tecnici</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/ai-coding-agent-senior-junior-team-tecnici</link>
+      <guid isPermaLink="false">2026-07-02-post-01-ai-coding-agenti-ruoli</guid>
+      <pubDate>Wed, 08 Jul 2026 06:45:00 GMT</pubDate>
+      <description><![CDATA[Gli agenti che scrivono codice non eliminano il lavoro tecnico: spostano il valore su specifiche, confini, review, test e responsabilita del merge.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-02-post-01-ai-coding-agenti-ruoli.png" alt="AI coding con agenti: ruolo del tecnico senior e junior" /></figure>
+<h1>AI coding agent: cosa cambia davvero per senior, junior e team tecnici</h1>
+<p>Gli agenti AI per scrivere codice non sono semplicemente un autocomplete piu ambizioso. La differenza vera e che iniziano a entrare nel flusso di lavoro del software: leggono repository, preparano piani, modificano codice su branch, aprono o alimentano pull request e chiedono review. Questo cambia il punto della discussione. Non stiamo piu parlando solo di &quot;quanto codice produce una persona&quot;, ma di chi definisce il compito, chi controlla i confini e chi decide se una modifica puo arrivare al merge.</p>
+<p>Per un CTO, un tech lead o un architect, la domanda utile non e &quot;quanti agenti possiamo mettere al lavoro?&quot;. E: quali attivita sono abbastanza strette, verificabili e reversibili da poter essere affidate a un agente senza creare debito di review?</p>
+<p>La documentazione di GitHub Copilot cloud agent descrive bene il nuovo perimetro operativo: l&apos;agente puo analizzare un repository, creare un piano, fare modifiche su un branch e lasciare al team il lavoro di review, iterazione e pull request. Questo non significa che la qualita sia garantita. Significa che l&apos;agente non vive piu solo dentro l&apos;editor: entra nella catena repo, diff, test, CI e revisione.</p>
+<p>Qui il ruolo del senior non si riduce. Cambia leva. Meno tempo puo andare nella prima stesura del codice; piu tempo deve andare nella definizione dell&apos;intento, nei vincoli architetturali, nei criteri di accettazione, nei test da eseguire e nella decisione finale. Se la richiesta e vaga, l&apos;agente puo accelerare anche la vaghezza. Un compito scritto male produce una diff plausibile ma fragile, e spesso il costo emerge dopo: review piu lunghe, fallimenti CI, fix parziali, rollback.</p>
+<p>Le fonti disponibili invitano a evitare una lettura magica. Anthropic, in un articolo sugli agenti efficaci, distingue tra workflow e agenti e suggerisce di partire dalla soluzione piu semplice possibile, aumentando la complessita solo quando serve. Questo e un punto pratico: non ogni automazione deve diventare un agente autonomo. A volte un flusso deterministico, un controllo automatico o una chiamata LLM ben incastrata nel processo valgono piu di un sistema piu libero ma meno prevedibile.</p>
+<p>Anche i dati empirici spingono verso una regola prudente: task piccoli e controllabili prima dei problemi ambigui. Uno studio su oltre 33 mila pull request attribuite ad agenti su GitHub osserva risultati migliori su lavori circoscritti come documentazione, CI e build, mentre performance e bug-fix risultano piu difficili. Lo stesso lavoro segnala che le PR non mergeate tendono a essere piu grandi, toccare piu file e fallire piu spesso la CI. Non e una legge universale per ogni azienda, ma e un segnale operativo forte: la dimensione del cambiamento conta.</p>
+<p>Per i junior, il quadro e doppio. Da un lato l&apos;opportunita e enorme: un agente puo aiutare a esplorare codice sconosciuto, proporre test, confrontare alternative, spiegare pattern e trasformare una codebase in un ambiente piu interrogabile. Dall&apos;altro lato c&apos;e un rischio formativo reale: accettare diff plausibili senza saperle spiegare. Se il junior usa l&apos;agente per saltare il ragionamento, perde proprio il pezzo che serve a crescere. Se invece lo usa come compagno di studio, con test, domande e review, puo imparare piu velocemente.</p>
+<p>Il costo nascosto e il review debt. Un paper sul dataset AIDev riporta che il 46,41% delle fix agentiche analizzate e stato rifiutato, spesso per implementazioni incomplete o sbagliate, fallimenti di test o CI, sessioni non chiuse o bassa priorita. Il dato non va trattato come media universale dell&apos;industria: riguarda uno specifico dataset. Pero rende visibile un punto spesso trascurato: anche il codice che non entra costa tempo, attenzione e risorse computazionali.</p>
+<p>Alla fine, la governance resta nel merge. Uno studio sui lifecycle di pull request osserva una separazione interessante: in certi flussi l&apos;iniziativa operativa puo essere agentica, ma l&apos;autorita finale resta prevalentemente umana. Questo e il cuore del cambiamento. Gli agenti possono produrre, proporre, modificare. Il team deve decidere quali confini non si delegano.</p>
+<p>Una regola pratica per partire: dare agli agenti compiti stretti, contesto esplicito, test eseguibili e criteri di uscita chiari. Dare ai senior il controllo dei confini e della responsabilita. Dare ai junior il tempo di spiegare la diff, non solo di produrla.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>GitHub Docs, &quot;About GitHub Copilot cloud agent&quot;, consultata il 2026-07-02.</li>
+<li>Anthropic, &quot;Building effective agents&quot;, 2024-12-19, consultata il 2026-07-02.</li>
+<li>DORA / Google Cloud, &quot;2025 DORA State of AI-assisted Software Development report&quot;, consultata il 2026-07-02.</li>
+<li>Ehsani et al., &quot;Where Do AI Coding Agents Fail?&quot;, arXiv:2601.15195.</li>
+<li>Abujadallah, Arabat, Sayagh, &quot;Understanding the Rejection of Fixes Generated by Agentic Pull Requests&quot;, arXiv:2606.13468.</li>
+<li>Chung e Hassan, &quot;Collaborator or Assistant?&quot;, arXiv:2605.08017.</li>
+</ul>
+<p>Nota editoriale: i paper citati sono preprint o studi su dataset specifici, spesso open source. Le percentuali non vanno trasferite automaticamente a ogni contesto enterprise.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>Data center, acqua e calore: le soluzioni concrete gia in uso</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/data-center-acqua-calore-soluzioni</link>
+      <guid isPermaLink="false">2026-07-02-post-02-data-center-acqua-calore</guid>
+      <pubDate>Wed, 08 Jul 2026 06:46:00 GMT</pubDate>
+      <description><![CDATA[Alcuni data center usano acque non potabili, ricircolo e recupero del calore. Non e una soluzione magica, ma un modo piu intelligente di progettare infrastrutture digitali.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-02-post-02-data-center-acqua-calore.png" alt="Sistemi gia realizzati per ridurre l&apos;impatto ambientale dei data center: ricircolo dell&apos;acqua e recupero del calore" /></figure>
+<h1>Data center, acqua e calore: le soluzioni concrete gia in uso</h1>
+<p>Cloud, AI, streaming e servizi digitali sembrano leggeri perche non li tocchiamo. In realta dipendono da edifici fisici: data center pieni di server, chip, sistemi elettrici e impianti di raffreddamento. Il punto ambientale non e solo quanta energia consumano, ma anche come vengono raffreddati, quale acqua usano, dove finiscono il calore e quanto l&apos;infrastruttura dialoga con il territorio.</p>
+<p>La scala rende il tema urgente. L&apos;International Energy Agency ha stimato che i data center abbiano consumato circa 415 TWh di elettricita nel 2024 e nello scenario centrale prevede una domanda oltre il doppio entro il 2030, con l&apos;AI come uno dei driver principali. Sono dati globali e previsionali, quindi non descrivono il singolo impianto. Pero spiegano perche raffreddamento, localizzazione e integrazione urbana sono diventati temi centrali.</p>
+<p>Un data center genera calore. Raffreddarlo non e un dettaglio tecnico: determina quanta energia serve e, in alcuni casi, quanta acqua viene prelevata. Il raffreddamento ad aria puo ridurre l&apos;uso diretto di acqua, ma spesso richiede piu energia. Il raffreddamento ad acqua puo essere efficiente, ma sposta la responsabilita sul bacino idrico locale. Non esiste una risposta valida ovunque: clima, rete elettrica, disponibilita idrica e infrastrutture cittadine cambiano il bilancio.</p>
+<p>Google, nelle proprie comunicazioni sul raffreddamento dei data center, racconta proprio questo tradeoff. L&apos;azienda dichiara di usare acqua reclaimed o non potabile in oltre il 25% dei propri campus e cita il caso di Douglas County, in Georgia, dove vengono usate acque reflue municipali trattate. L&apos;idea e semplice: per raffreddare server non serve necessariamente acqua potabile. Il caveat e altrettanto importante: si tratta di esempi aziendali, non della prova che questa pratica sia standard in tutto il settore.</p>
+<p>La scelta migliore dipende anche dal rischio idrico del luogo. In un approfondimento Google Cloud sul tema, l&apos;azienda descrive valutazioni locali del bacino idrico e cita alternative come acqua reclaimed o air-cooling quando l&apos;uso di acqua sarebbe piu delicato. Questo sposta la conversazione dal generico &quot;data center green&quot; a domande piu concrete: quale acqua viene usata? Da dove arriva? Che cosa succede nei periodi di stress idrico? Chi misura l&apos;impatto?</p>
+<p>Poi c&apos;e il calore. Tradizionalmente e uno scarto da smaltire. In alcuni contesti, invece, puo diventare una risorsa. Il caso piu immediato da raccontare e Odense, in Danimarca: Wired ha descritto come il calore in eccesso del data center Meta entri nella rete di teleriscaldamento e contribuisca a scaldare abitazioni. E un esempio forte perche rende visibile una cosa spesso astratta: i server non sono solo macchine digitali, sono anche sorgenti termiche.</p>
+<p>In Finlandia, Fortum e Microsoft hanno annunciato una collaborazione per recuperare calore da una nuova regione data center Microsoft e distribuirlo nella rete di teleriscaldamento dell&apos;area di Espoo, Kauniainen e Kirkkonummi. Qui e essenziale usare la formula corretta: si tratta di un progetto annunciato, non di un&apos;infrastruttura da presentare automaticamente come gia pienamente operativa. Il valore del caso e mostrare come la progettazione di un data center possa partire anche dalla rete urbana intorno.</p>
+<p>Esistono anche esempi piu tecnici, come i sistemi HPC raffreddati con acqua calda e riuso energetico descritti nel paper iDataCool. Non sono modelli da copiare ovunque, ma aiutano a capire il principio: l&apos;acqua puo diventare un vettore di calore controllabile, non solo una voce di consumo.</p>
+<p>Queste soluzioni non cancellano l&apos;impatto dei data center. Non trasformano automaticamente un&apos;infrastruttura pesante in un oggetto neutro. Spostano pero la discussione su un terreno piu utile: progettazione, trasparenza e responsabilita locale. La domanda non e solo &quot;quanto consuma?&quot;. E: da dove prende energia? Che acqua usa? Dove finisce il calore? Quanto e vicino a una domanda reale di calore urbano? Chi verifica i dati?</p>
+<p>Il data center del futuro, se vogliamo valutarlo seriamente, non va guardato come un edificio isolato. Va letto come un nodo dentro un sistema: rete elettrica, acqua, clima, citta, industria e cittadini.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>International Energy Agency, &quot;Energy and AI&quot;, 2025-04-10.</li>
+<li>Google, &quot;Our commitment to climate-conscious data center cooling&quot;, 2022-11-21.</li>
+<li>Google Cloud, &quot;Responsible water use&quot;, 2023-12-14.</li>
+<li>Wired, &quot;What Happens When Facebook Heats Your Home&quot;, 2023-12-20.</li>
+<li>Meyer et al., &quot;iDataCool: HPC with Hot-Water Cooling and Energy Reuse&quot;, arXiv:1309.4887.</li>
+<li>Fortum, comunicato su collaborazione Fortum-Microsoft, 2022-03-17.</li>
+</ul>
+<p>Nota editoriale: i casi citati non sono tutti nello stesso stato di maturita e non vanno generalizzati come standard globale.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>Prima di chiamarla AI: cinque scrittori che avevano gia visto le domande giuste</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/scrittori-fantascienza-intelligenza-artificiale</link>
+      <guid isPermaLink="false">2026-07-03-post-03-scrittori-ai-fantascienza</guid>
+      <pubDate>Wed, 08 Jul 2026 06:47:00 GMT</pubDate>
+      <description><![CDATA[Butler, Capek, Asimov, Philip K. Dick e Lem non hanno previsto ChatGPT. Hanno anticipato i dilemmi culturali che oggi tornano con l'intelligenza artificiale.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-03-post-03-scrittori-ai-fantascienza.png" alt="I 5 scrittori famosi che hanno anticipato in modo assurdamente realistico l&apos;avvento delle AI" /></figure>
+<h1>Prima di chiamarla AI: cinque scrittori che avevano gia visto le domande giuste</h1>
+<p>Quando diciamo che alcuni scrittori &quot;avevano previsto l&apos;AI&quot;, rischiamo di dire una cosa affascinante ma imprecisa. Samuel Butler, Karel Capek, Isaac Asimov, Philip K. Dick e Stanislaw Lem non hanno previsto ChatGPT in senso tecnico. Non hanno descritto modelli linguistici, data center, transformer o app generative. Hanno fatto qualcosa di diverso e forse piu duraturo: hanno immaginato le domande culturali che oggi tornano con l&apos;intelligenza artificiale.</p>
+<p>La prima e la piu antica arriva da Samuel Butler. In &quot;Erewhon&quot;, pubblicato nel 1872, il capitolo &quot;The Book of the Machines&quot; immagina un mondo che teme l&apos;evoluzione delle macchine e la crescente dipendenza umana dalla tecnologia. Butler scrive in un contesto satirico e filosofico, non informatico. Ma il nodo e sorprendentemente vicino al nostro presente: cosa succede quando gli strumenti non restano immobili, ma sembrano crescere insieme a noi e sopra di noi?</p>
+<p>Butler non descrive un chatbot. Descrive la possibilita che le macchine diventino una presenza evolutiva. La tecnologia non e piu un utensile neutro: e un sistema che modifica abitudini, lavoro, percezione e dipendenze. E una lente utile anche oggi, quando discutiamo di strumenti AI che entrano nella scrittura, nella programmazione, nella ricerca, nella comunicazione e nelle decisioni.</p>
+<p>Il secondo passaggio e Karel Capek. Con &quot;R.U.R. (Rossum&apos;s Universal Robots)&quot;, del 1920, porta in scena il termine &quot;robot&quot; e lo lega a una fabbrica di lavoratori artificiali prodotti in serie. I robot di Capek non sono robot elettronici moderni e non sono software: sono creature artificiali organiche. Pero la domanda sociale e nitida: cosa succede quando il lavoro diventa automatizzabile? Chi beneficia della sostituzione? Chi ne paga il prezzo?</p>
+<p>Capek non inventa solo una parola fortunata. Mette in scena il rapporto tra produzione, obbedienza e valore umano. Per questo resta attuale: molte conversazioni sull&apos;AI nel lavoro non riguardano solo efficienza o produttivita, ma identita professionale, potere contrattuale, dignita e distribuzione dei benefici.</p>
+<p>Con Isaac Asimov cambia il fuoco: non basta chiedersi se una macchina possa agire, bisogna chiedersi quali limiti debba avere. Le Tre Leggi della Robotica, rese celebri nei racconti poi raccolti in &quot;I, Robot&quot;, sono un dispositivo narrativo, non un framework tecnico sufficiente per l&apos;AI reale. Ma hanno reso popolare un&apos;intuizione fondamentale: autonomia e responsabilita non possono essere separate.</p>
+<p>Oggi parleremmo di allineamento, sicurezza, controllo, accountability. Asimov non risolve questi problemi: li trasforma in racconto. E proprio per questo li rende comprensibili. Ogni volta che chiediamo &quot;chi risponde se un sistema autonomo sbaglia?&quot;, stiamo tornando su un terreno che la fantascienza aveva gia esplorato.</p>
+<p>Philip K. Dick porta la questione su un piano piu ambiguo. In &quot;Do Androids Dream of Electric Sheep?&quot; il problema non e solo costruire un artificiale intelligente, ma capire che cosa misuriamo quando proviamo a distinguere umano e non umano. Empatia, memoria, comportamento, linguaggio: quanto basta per riconoscere una persona? E se il test dicesse qualcosa anche su chi lo somministra?</p>
+<p>Questa domanda torna con le interfacce conversazionali. Una macchina che parla bene non e una persona. Ma una macchina che parla bene cambia il modo in cui noi reagiamo, attribuiamo intenzioni, costruiamo fiducia o sospetto. Dick e ancora attuale perche non cerca la macchina perfetta: mette in scena il dubbio.</p>
+<p>Infine Stanislaw Lem, con &quot;Golem XIV&quot;, porta la vertigine un passo piu in la. Qui l&apos;intelligenza artificiale non e solo piu rapida o piu efficiente dell&apos;essere umano. E concettualmente distante. La superintelligenza immaginata da Lem non serve soltanto a fare meglio i nostri compiti: mette in crisi la nostra capacita di capire una mente non umana.</p>
+<p>Il parallelo con l&apos;AI contemporanea resta interpretativo. Lem non parla di AI generativa come la intendiamo oggi. Pero coglie un punto decisivo: una mente artificiale davvero avanzata potrebbe non somigliarci. Potrebbe non condividere le nostre categorie, le nostre priorita, il nostro modo di spiegare.</p>
+<p>Questi cinque autori non sono profeti tecnici. Sono mappe culturali. Butler ci parla di dipendenza dalle macchine. Capek di lavoro automatizzato. Asimov di regole e responsabilita. Dick di identita ed empatia. Lem di intelligenze piu grandi o piu lontane di noi.</p>
+<p>Forse e per questo che leggerli oggi non sembra un esercizio nostalgico. Prima ancora di chiamarla AI, la letteratura aveva gia visto il problema: non solo costruire macchine intelligenti, ma capire che cosa succede a noi quando iniziamo a conviverci.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Samuel Butler, &quot;Erewhon&quot;, Project Gutenberg.</li>
+<li>Karel Capek, &quot;R.U.R. (Rossum&apos;s Universal Robots)&quot;, Project Gutenberg.</li>
+<li>Encyclopaedia Britannica, voce sulle Tre Leggi della Robotica.</li>
+<li>The Encyclopedia of Science Fiction, voce su Philip K. Dick.</li>
+<li>Encyclopaedia Britannica, voce su Stanislaw Lem.</li>
+<li>solaris.lem.pl, saggio critico su &quot;Golem XIV&quot;.</li>
+</ul>
+<p>Nota editoriale: il claim e culturale, non tecnico. Gli autori non vanno presentati come previsori diretti delle AI generative moderne.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>Sakana Fugu: perche l&apos;AI interessante non e sempre un modello piu grande</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/sakana-fugu-ai-orchestrazione-modelli</link>
+      <guid isPermaLink="false">2026-07-06-post-04-sakana-fugu-ai-giappone</guid>
+      <pubDate>Wed, 08 Jul 2026 06:48:00 GMT</pubDate>
+      <description><![CDATA[Fugu, annunciato da Sakana AI, propone un'idea diversa: coordinare piu modelli e agenti dietro una sola API. Il valore si sposta sull'orchestrazione.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-06-post-04-sakana-fugu-ai-giappone.png" alt="Sakana Fugu, il nuovo sistema AI giapponese di Sakana AI" /></figure>
+<h1>Sakana Fugu: perche l&apos;AI interessante non e sempre un modello piu grande</h1>
+<p>Sakana Fugu e interessante non perche promette di essere &quot;l&apos;ennesimo chatbot piu potente&quot;, ma perche sposta la domanda. Invece di chiedere solo quale modello sia migliore, chiede se un sistema possa coordinare piu modelli e agenti dietro una singola interfaccia. In altre parole: il valore non sta soltanto nel cervello piu grande, ma nella regia.</p>
+<p>Sakana AI ha annunciato Fugu il 22 giugno 2026. Nelle fonti ufficiali, l&apos;azienda lo presenta come un sistema di orchestrazione multi-agente accessibile tramite una singola API. La formula e importante: Fugu non va raccontato come un foundation model classico, ma come un sistema che riceve una richiesta, decide come affrontarla, puo coinvolgere modelli o agenti specializzati e restituisce una risposta unica.</p>
+<p>Per chi sviluppa prodotti AI, questo cambia il livello di astrazione. Oggi molte aziende si trovano a combinare modelli diversi: uno per scrivere, uno per ragionare, uno per codice, uno per ricerca, uno piu economico per task semplici, uno piu robusto per task delicati. Farlo bene richiede routing, controlli, fallback, gestione dei costi, valutazione della qualita e manutenzione continua. Fugu propone di impacchettare parte di questa complessita in un&apos;esperienza piu semplice.</p>
+<p>La pagina prodotto e il repository pubblico descrivono Fugu e Fugu Ultra come disponibili tramite un&apos;API compatibile con OpenAI, con riferimenti agli endpoint Chat Completions e Responses. Questo rende il messaggio chiaro per gli sviluppatori: non serve necessariamente riprogettare tutto da zero per provare il sistema. Attenzione pero: compatibile non significa identico in ogni comportamento, costo o dettaglio operativo.</p>
+<p>Il punto strategico e la dipendenza da un solo fornitore. Se un prodotto si appoggia interamente a un modello o a un provider, ogni cambio di prezzo, policy, latenza, disponibilita o qualita puo diventare un rischio di prodotto. Sakana posiziona Fugu come un modo per ridurre la complessita di una strategia multi-modello e, al tempo stesso, evitare una dipendenza troppo rigida da un unico vendor. E una promessa di valore, non una garanzia indipendente.</p>
+<p>Il caveat principale riguarda la trasparenza. Sakana dichiara che i modelli selezionati e il modo in cui vengono coordinati restano proprietari. Questo non e automaticamente un difetto: molti prodotti funzionano proprio perche nascondono complessita interna. Ma per aziende con requisiti forti di audit, controllo dei dati, governance o prevedibilita, e un punto da valutare con attenzione. La semplicitÃ  esterna puo avere come costo una minore visibilita sulla regia interna.</p>
+<p>E qui si vede perche Fugu e un segnale piu ampio della singola release. Negli ultimi anni la conversazione sull&apos;AI e stata spesso dominata dalla gara al modello piu grande, piu veloce o piu performante nei benchmark. Ma nella pratica dei prodotti conta anche un&apos;altra capacita: scegliere lo strumento giusto per il compito giusto, delegare, verificare, sintetizzare e tenere sotto controllo costi e qualita.</p>
+<p>In questo senso Fugu sembra dire che il futuro dell&apos;AI potrebbe assomigliare meno a un unico modello onnipotente e piu a una squadra coordinata. Un sistema in cui l&apos;orchestrazione decide quando usare un modello, quando coinvolgere un agente, quando sintetizzare e quando rispondere direttamente.</p>
+<p>La prudenza resta necessaria. I benchmark e le performance vanno distinti dai claim aziendali e dalle verifiche indipendenti. The Decoder, usato nel post come contesto esterno, segnala proprio la necessita di leggere con cautela i racconti sui benchmark e i primi test. Il modo corretto di parlarne non e &quot;Fugu batte tutti&quot;, ma &quot;Fugu rende interessante una direzione architetturale: l&apos;AI come sistema coordinato, non come singolo modello&quot;.</p>
+<p>Per founder, designer, developer e strategist, la lezione e pratica. Quando si progetta un prodotto AI, la domanda non e solo quale modello integrare. E quale architettura permette di cambiare modello, combinare capacita, controllare costi, osservare errori e mantenere una buona esperienza utente. Fugu non chiude questa domanda. La rende piu visibile.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Sakana AI, &quot;Sakana Fugu: One Model to Command Them All&quot;, 2026-06-22.</li>
+<li>Sakana AI, pagina prodotto &quot;Sakana Fugu - Multi-Agent System as a Model&quot;.</li>
+<li>Repository GitHub &quot;SakanaAI/fugu&quot;.</li>
+<li>The Decoder, articolo di contesto su Fugu e benchmark, 2026-06.</li>
+</ul>
+<p>Nota editoriale: i claim su funzionalita e posizionamento derivano soprattutto da fonti ufficiali Sakana. I benchmark non vanno presentati come validazione indipendente.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>Meta Pocket: il feed dei mini giochi creati con un prompt</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/meta-pocket-mini-giochi-prompt-ai</link>
+      <guid isPermaLink="false">2026-07-06-post-05-meta-pocket-giochi-ai</guid>
+      <pubDate>Wed, 08 Jul 2026 06:49:00 GMT</pubDate>
+      <description><![CDATA[Pocket e un'app sperimentale di Meta per creare e condividere piccoli oggetti interattivi con l'AI. Il segnale: il vibe coding entra in una logica social.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-06-post-05-meta-pocket-giochi-ai.png" alt="Meta Pocket, l&apos;app per creare mini giochi e app interattive con prompt AI" /></figure>
+<h1>Meta Pocket: il feed dei mini giochi creati con un prompt</h1>
+<p>Meta Pocket e interessante non perche sia sicuramente il prossimo grande social, ma perche mostra una direzione di prodotto. Invece di usare l&apos;AI solo per generare testo, immagini o video, Pocket prova a trasformare la creazione di piccole esperienze interattive in un formato da feed: si descrive un&apos;idea, si genera un mini oggetto giocabile, lo si rifinisce e lo si condivide.</p>
+<p>Secondo la scheda ufficiale su Google Play, Pocket e una piattaforma creativa per creare e condividere &quot;gizmos&quot;: piccoli oggetti interattivi che possono essere provati, salvati e condivisi. La promessa e semplice: l&apos;utente descrive cio che vuole creare, Pocket genera una prima versione e poi l&apos;editor permette di modificarla e rifinirla. Non stiamo parlando di un post tradizionale, ma di un contenuto che si puo toccare e sperimentare.</p>
+<p>La stessa scheda parla di feed globale, profilo, playlist e interazioni come touch, inclinazione, audio, camera e foto. Questo e il punto piu interessante: la creazione AI non viene trattata solo come output finale, ma come materiale sociale. Si crea, si prova, si salva, si commenta, si remixano idee. Il contenuto non e soltanto da guardare: puo diventare una micro-esperienza.</p>
+<p>TechCrunch ha raccontato il lancio come silenzioso e, citando Appfigures, ha indicato il 29 giugno 2026 come data di lancio su App Store e Google Play. Business Insider e The Verge hanno aggiunto contesto sulla disponibilita limitata e sul legame con Gizmo/Atma Sciences, una piattaforma simile di vibe-coded gaming collegata al team acquisito da Meta. Queste fonti sono utili per la cronaca e il contesto, mentre per le funzionalita conviene appoggiarsi soprattutto alla scheda ufficiale dell&apos;app.</p>
+<p>Il termine &quot;vibe coding&quot; nasce in un contesto piu vicino a sviluppatori e maker: descrivere cosa si vuole ottenere, lasciare che l&apos;AI produca codice o prototipi, poi iterare. Pocket sembra portare quella logica in un ambiente piu consumer. Non chiede all&apos;utente di aprire un repository o configurare un framework. Prova a dire: descrivi una piccola esperienza e falla circolare.</p>
+<p>Se questa direzione funzionasse, il feed social potrebbe cambiare forma. Oggi scorriamo soprattutto immagini, video, testi, meme e contenuti passivi. Un feed di gizmos sarebbe diverso: ogni elemento potrebbe essere un piccolo gioco, un filtro, una scena reattiva, una mini app o un esperimento interattivo. Non e detto che il pubblico lo voglia davvero, ma il passaggio concettuale e chiaro: dal contenuto da consumare al contenuto da provare.</p>
+<p>Il caveat e importante. Pocket, al momento delle fonti usate, risultava un prodotto sperimentale, con disponibilita limitata e senza un grande annuncio pubblico da parte di Meta. Le descrizioni degli store possono cambiare nel tempo; le feature possono evolvere; la qualita dei gizmos generati non e stata verificata indipendentemente nel perimetro del lavoro editoriale. Quindi non va raccontato come un prodotto maturo o gia destinato al successo.</p>
+<p>Va evitata anche una confusione di nome: questo Pocket non e il vecchio Pocket read-it-later di Mozilla. Qui siamo davanti a un esperimento diverso, legato alla creazione AI di oggetti interattivi.</p>
+<p>Per Meta, il razionale e comprensibile. Se l&apos;AI generativa rende piu facile produrre contenuti, la piattaforma che riesce a trasformare questa produzione in un formato sociale ha un vantaggio. Finora gran parte della generazione AI e rimasta dentro strumenti separati: editor, chatbot, app creative, ambienti di prototipazione. Pocket prova a chiudere il circuito: generazione, fruizione, profilo, feed e remix nello stesso spazio.</p>
+<p>La domanda aperta e se le persone vogliano davvero un feed fatto di mini esperienze interattive. Guardare un video e semplice. Provare un piccolo gioco richiede piu attenzione. Ma proprio qui sta l&apos;esperimento: capire se l&apos;AI puo abbassare abbastanza il costo di creazione da rendere il contenuto interattivo leggero quanto un post.</p>
+<p>Pocket non e una certezza. E un segnale. Il vibe coding sta uscendo dagli ambienti tecnici e sta diventando linguaggio di prodotto: non piu solo &quot;scrivi codice piu veloce&quot;, ma &quot;crea una cosa giocabile e falla circolare&quot;.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Google Play, scheda &quot;Pocket&quot; di Meta Platforms, consultata il 2026-07-06.</li>
+<li>TechCrunch, &quot;Meta quietly launches vibe-coded gaming app Pocket&quot;, 2026-07-02.</li>
+<li>Business Insider, articolo su Pocket e Gizmo, 2026-07-02.</li>
+<li>The Verge, articolo su Meta Pocket e Gizmo, 2026-07-02.</li>
+</ul>
+<p>Nota editoriale: disponibilita, feature e descrizione dell&apos;app possono cambiare rapidamente. Non presentare Pocket come disponibile ovunque o come lancio maturo.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>Parlare di AI senza perdere fiducia: una guida per leader e team</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/parlare-ai-lavoro-fiducia-leader</link>
+      <guid isPermaLink="false">2026-07-07-post-06-boss-ai-fiducia-lavoro</guid>
+      <pubDate>Wed, 08 Jul 2026 06:50:00 GMT</pubDate>
+      <description><![CDATA[L'adozione dell'AI non e solo una questione di strumenti. Per i team conta anche come i leader parlano di lavoro, rischio, formazione e sicurezza psicologica.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/2026-07-07-post-06-boss-ai-fiducia-lavoro.png" alt="Come i leader dovrebbero parlare di AI, lavoro e sicurezza psicologica" /></figure>
+<h1>Parlare di AI senza perdere fiducia: una guida per leader e team</h1>
+<p>Come dovrebbero parlare di AI i leader? Sembra una domanda di comunicazione, ma in realta e una domanda di fiducia. L&apos;intelligenza artificiale entra nelle aziende mentre molte persone si chiedono se il proprio ruolo cambiera, si ridurra o sparira. In questo contesto, le parole non sono un accessorio: diventano parte della strategia.</p>
+<p>The Economist ha pubblicato il 28 maggio 2026 un articolo che pone proprio il tema di come i capi dovrebbero parlare di AI a dipendenti che possono temerla. Nel perimetro di lavoro editoriale, il testo completo non e stato usato come fonte per dettagli specifici, perche non consultabile integralmente senza registrazione o paywall. Il punto pero resta valido come innesco: quando una tecnologia viene presentata come inevitabile, chi lavora ascolta anche cosa l&apos;organizzazione pensa del suo valore.</p>
+<p>Il caso Standard Chartered rende la questione concreta. Nel 2026 la banca ha presentato iniziative su AI, automazione e produttivita durante il proprio Investor Event, con materiali ufficiali che parlano di capacita AI scalabili, oltre 300 use case AI live, 43 use case GenAI live, operazioni AI-driven e uso/training di Microsoft Copilot su larga scala. Sono claim aziendali, rivolti agli investitori, utili per capire la direzione strategica ma non per misurare l&apos;impatto sociale.</p>
+<p>La controversia nasce dal linguaggio. Il Guardian ha raccontato le critiche e le scuse pubbliche seguite all&apos;espressione &quot;lower-value human capital&quot;, associata a discussioni su automazione e tagli di ruoli back-office. Il punto non e trasformare il caso in un attacco personale. Il punto e capire che cosa succede quando, parlando di efficienza, si finisce per far percepire alcune persone come meno preziose.</p>
+<p>Nel lavoro, la paura non e automaticamente resistenza. Molti team usano gia strumenti AI, li provano, li integrano e ne riconoscono l&apos;utilita. Ma adottare una tecnologia non significa sentirsi al sicuro mentre il proprio ruolo cambia. Per l&apos;azienda l&apos;AI puo voler dire produttivita, riduzione dei costi o velocita. Per chi lavora puo voler dire incertezza: quali attivita resteranno? Quali competenze conteranno? Quanto tempo avro per imparare? Che cosa succede se il mio lavoro e tra quelli automatizzabili?</p>
+<p>La letteratura sul lavoro aiuta a non liquidare queste domande come emotivita. Una meta-analisi del 2019 collega l&apos;insicurezza lavorativa a peggiori performance dei dipendenti. Uno studio del 2018 su insicurezza, ansia e commitment indica che la fiducia collettiva nel management puo attenuare parte degli effetti negativi. Questi studi non riguardano specificamente l&apos;AI generativa, quindi non vanno forzati. Ma offrono un principio organizzativo solido: l&apos;incertezza non gestita ha un costo, e la fiducia non nasce da slogan rassicuranti.</p>
+<p>Per questo &quot;l&apos;AI vi rendera piu produttivi&quot; e una frase incompleta. Puo essere vera per alcuni processi, ma non risponde alla domanda che molte persone hanno in testa: piu produttivi per chi, con quali conseguenze e con quale supporto? Una comunicazione utile dovrebbe essere piu onesta: &quot;Ecco cosa cambiera, cosa non sappiamo ancora, quali attivita sono a rischio, quali competenze resteranno importanti e come vi aiutiamo a prepararvi&quot;.</p>
+<p>Il primo compito dei leader e nominare i tradeoff. Se alcune attivita saranno automatizzate, dirlo con chiarezza e piu rispettoso che nasconderlo dietro formule vaghe. Questo non significa promettere che nessuno perdera il lavoro, se non e vero. Significa evitare sia il panico sia la minimizzazione.</p>
+<p>Il secondo compito e costruire una mappa delle skill. Non basta dire &quot;imparate l&apos;AI&quot;. Serve spiegare quali capacita umane continueranno a contare: giudizio, relazione, responsabilita, conoscenza del contesto, capacita di fare domande, supervisione, gestione delle eccezioni. Le persone hanno bisogno di vedere un ponte tra il lavoro di oggi e quello di domani.</p>
+<p>Il terzo compito e trattare la formazione come parte del messaggio, non come appendice. Se l&apos;azienda chiede alle persone di abbracciare l&apos;AI, deve offrire tempo, percorsi, esempi concreti e possibilita reali di spostarsi verso ruoli piu solidi. La formazione comunica una cosa semplice: non vi stiamo solo chiedendo di adattarvi, stiamo investendo nella vostra capacita di farlo.</p>
+<p>La domanda migliore, allora, non e &quot;come convinciamo le persone ad accettare l&apos;AI?&quot;. E: &quot;cosa dobbiamo fare perche possano fidarsi di noi mentre l&apos;AI cambia il lavoro?&quot;. La risposta non sta in una frase perfetta. Sta nella coerenza tra parole, scelte e supporto reale.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>The Economist, &quot;How should bosses talk about AI?&quot;, 2026-05-28. Usato come innesco editoriale; il testo completo non e stato usato per dettagli non verificati.</li>
+<li>Standard Chartered, Investor Event 2026 e Transformation Presentation, maggio 2026.</li>
+<li>The Guardian, articolo sulle scuse del CEO di Standard Chartered, 2026-05-22.</li>
+<li>Chirumbolo et al., &quot;A Meta-Analysis of Job Insecurity and Employee Performance&quot;, 2019.</li>
+<li>Wang, Mather e Seifert, &quot;Job insecurity, employee anxiety, and commitment&quot;, 2018.</li>
+</ul>
+<p>Nota editoriale: trasparenza e formazione non eliminano automaticamente tagli o conflitti di incentivo. Servono a ridurre sfiducia e incertezza, non a promettere assenza di impatto.</p>]]></content:encoded>
+      <category>content_queue</category>
+    </item>
+    <item>
+      <title>I data center hanno sete: quando l&apos;AI diventa una questione d&apos;acqua</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/i-data-center-hanno-sete</link>
+      <guid isPermaLink="false">POST 01</guid>
+      <pubDate>Wed, 08 Jul 2026 06:51:00 GMT</pubDate>
+      <description><![CDATA[I data center non sono nuvole astratte: occupano territori, consumano energia e possono pesare sui bacini idrici locali.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-01-i-data-center-hanno-sete.png" alt="I data center hanno sete" /></figure>
+<h1>I data center hanno sete: quando l&apos;AI diventa una questione d&apos;acqua</h1>
+<p>La parola â€œcloudâ€ ci ha abituati a immaginare il digitale come qualcosa di leggero. Un file sale, una risposta arriva, un modello AI elabora. Ma dietro ogni servizio c&apos;Ã¨ un&apos;infrastruttura fisica: edifici pieni di server, energia, impianti di raffreddamento, contratti locali e acqua. Il punto del post Figma â€œI data center hanno seteâ€ Ã¨ proprio questo: riportare l&apos;AI a terra.</p>
+<p>Il dato usato nel brief storico era forte e va maneggiato con attenzione: secondo un&apos;analisi giornalistica del Guardian, circa due terzi degli 809 data center AI pianificati negli Stati Uniti si trovavano in aree colpite da siccitÃ  nell&apos;ultimo anno. Nel materiale compare anche il numero di 517 data center pianificati su 809 in aree in siccitÃ , insieme al riferimento a grandi impianti che possono arrivare a usare fino a 5 milioni di galloni d&apos;acqua al giorno.</p>
+<p>Sono numeri utili perchÃ© spostano la conversazione. Non chiedono solo â€œquanta AI vogliamo?â€, ma â€œdove la mettiamo?â€ e â€œcon quali risorse?â€. Un data center in un territorio ricco d&apos;acqua e con rete elettrica stabile non ha lo stesso peso di un impianto collocato dove acqua, energia e consenso pubblico sono giÃ  sotto pressione.</p>
+<p>Il caveat Ã¨ essenziale: non tutti i data center consumano la stessa quantitÃ  d&apos;acqua. Il consumo effettivo dipende dalla tecnologia di raffreddamento, dal clima, dalla fonte energetica, dal tipo di carico computazionale e dalle scelte operative. Alcuni sistemi usano piÃ¹ aria e meno acqua; altri usano acqua per migliorare l&apos;efficienza energetica. Non esiste una risposta pulita e valida ovunque.</p>
+<p>PerÃ² proprio questa complessitÃ  rende il tema progettuale. Se il digitale ha un corpo, allora va disegnato come un sistema: edifici, reti, bacini idrici, comunitÃ , autorizzazioni e metriche pubbliche. Una piattaforma puÃ² sembrare immateriale all&apos;utente finale, ma produce effetti molto concreti per chi vive vicino all&apos;infrastruttura.</p>
+<p>Il racconto migliore non Ã¨ â€œAI contro ambienteâ€. Ãˆ piÃ¹ utile dire che l&apos;AI, come ogni tecnologia potente, ha bisogno di scelte visibili. Quale acqua viene usata? Da dove arriva? Che cosa succede nei periodi di stress idrico? Chi misura l&apos;impatto? Quali dati sono pubblici e quali restano dentro report aziendali?</p>
+<p>La forza del carosello sta nel visualizzare questa tensione: una mappa arida, puntini che segnano data center, server-rubinetti piantati nel territorio. Non per creare allarme, ma per rendere comprensibile una catena che normalmente resta nascosta.</p>
+<p>Alla fine, un data center non Ã¨ solo un edificio tecnico. Ãˆ una decisione territoriale. E se l&apos;AI diventa una parte stabile della vita quotidiana, dovremo imparare a discuterne anche come si discutono acqua, energia e spazio pubblico.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>The Guardian, analisi su data center AI e siccitÃ , 2026-06-08.</li>
+<li>Axios, contesto su risparmio idrico e data center, 2026-06-11.</li>
+<li>Nota editoriale: articolo ricostruito da frame title/copy e brief legacy; i dati vanno letti come indicazione giornalistica, non come misura universale del consumo di ogni impianto.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Questo robot riconosce i rifiuti: l&apos;AI quando entra nel nastro trasportatore</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/questo-robot-riconosce-i-rifiuti</link>
+      <guid isPermaLink="false">POST 02</guid>
+      <pubDate>Wed, 08 Jul 2026 06:52:00 GMT</pubDate>
+      <description><![CDATA[Un impianto di riciclo puÃ² usare visione artificiale e bracci robotici per separare materiali.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-02-questo-robot-riconosce-i-rifiuti.png" alt="Questo robot riconosce i rifiuti" /></figure>
+<h1>Questo robot riconosce i rifiuti: l&apos;AI quando entra nel nastro trasportatore</h1>
+<p>Parlare di intelligenza artificiale diventa piÃ¹ interessante quando smette di essere una nuvola di parole e incontra oggetti fisici. Un nastro trasportatore, pezzi di cartone, plastica, metallo, sacchetti deformati, residui. Il post â€œQuesto robot riconosce i rifiutiâ€ racconta proprio questo passaggio: l&apos;AI non come protagonista astratta, ma come parte di una macchina nel mondo reale.</p>
+<p>Il caso citato nel brief riguarda un impianto di Denver che usa robot con visione artificiale per identificare e separare rifiuti riciclabili. Il dato centrale disponibile parla di 10.000 tonnellate al mese e del 67% del riciclabile composto da cartone. Sono numeri da usare con cautela, ma aiutano a capire la scala: non stiamo parlando di una demo da laboratorio, bensÃ¬ di flussi materiali continui.</p>
+<p>La visione artificiale qui ha un compito molto concreto: riconoscere oggetti che non arrivano ordinati come in un dataset pulito. I materiali sono piegati, sporchi, sovrapposti, illuminati male, simili tra loro. Una scatola puÃ² sembrare cartone, un contenitore puÃ² essere contaminato, una busta puÃ² coprire altri pezzi. Il valore non sta nel dire â€œil robot vedeâ€, ma nel chiedere quanto bene riesce a decidere in condizioni imperfette.</p>
+<p>Ãˆ una buona storia Cutowl perchÃ© rende l&apos;AI meno spettacolare e piÃ¹ progettuale. Un braccio robotico che separa rifiuti deve essere integrato in un impianto, tarato su materiali locali, mantenuto, misurato e confrontato con il lavoro umano e con le regole del riciclo. Non basta installare un algoritmo: serve un sistema.</p>
+<p>Il caveat Ã¨ importante. Il brief segnala che si tratta di un caso locale e che l&apos;impatto sul tasso di riciclo va verificato su dati operativi piÃ¹ ampi. Un impianto puÃ² migliorare alcune fasi senza risolvere tutto il problema dei rifiuti. La qualitÃ  della raccolta a monte, le abitudini dei cittadini, le regole municipali e il mercato dei materiali riciclati restano decisivi.</p>
+<p>Anche la visualizzazione del post dice molto: nastro trasportatore isometrico, occhi-camera, bracci robotici. La scena funziona perchÃ© mostra il momento della decisione. Non una â€œAIâ€ generica, ma una mano meccanica che deve scegliere se un oggetto ambiguo va da una parte o dall&apos;altra.</p>
+<p>Questa Ã¨ forse la lezione piÃ¹ utile: l&apos;automazione non cancella la complessitÃ , la sposta. Prima la difficoltÃ  era riconoscere e separare manualmente; dopo diventa progettare sensori, modelli, flussi, controlli e metriche. Se non guardiamo il sistema, rischiamo di confondere il robot con la soluzione.</p>
+<p>Nel riciclo, come in molte tecnologie, la domanda non Ã¨ solo â€œfunziona?â€. Ãˆ: in quale contesto, con quali materiali, con quale manutenzione e con quale miglioramento misurabile?</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Axios Denver, caso su robot AI in impianto di riciclo, 2026-06-10.</li>
+<li>Business Insider, contesto su AI e sorting dei rifiuti, 2026-05.</li>
+<li>Nota editoriale: dati e claim derivano da brief legacy collegato al frame Figma; non generalizzare il caso a tutto il settore del riciclo.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>L&apos;accessibilitÃ  nasce prima della UI</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/accessibilita-nasce-prima-della-ui</link>
+      <guid isPermaLink="false">POST 03</guid>
+      <pubDate>Wed, 08 Jul 2026 06:53:00 GMT</pubDate>
+      <description><![CDATA[Molte barriere non nascono nel colore di un bottone, ma nel brief.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-03-l-accessibilita-nasce-prima-della-ui.png" alt="L&apos;accessibilita nasce prima della UI" /></figure>
+<h1>L&apos;accessibilitÃ  nasce prima della UI</h1>
+<p>Siamo abituati a pensare all&apos;accessibilitÃ  come a una revisione finale: controllo del contrasto, testo alternativo, tastiera, etichette, linee guida. Tutto necessario. Ma il post â€œL&apos;accessibilitÃ  nasce prima della UIâ€ porta la domanda un passo indietro: cosa succede se la barriera nasce quando non abbiamo ancora disegnato una schermata?</p>
+<p>Il brief storico parte da un paper UXR del 29 maggio 2026 sull&apos;accessibilitÃ  cognitiva nel mobile learning. Il dato centrale citato Ã¨ metodologico: nove Cognitive Accessibility UXR Play Cards e una struttura PoV per stakeholder diversi. Tradotto: non basta scrivere â€œdeve essere sempliceâ€. Bisogna trasformare memoria, attenzione, comprensione e autonomia in requisiti osservabili.</p>
+<p>Qui sta il cuore del tema. Una frase come â€œonboarding intuitivoâ€ sembra innocua, ma non dice quasi nulla. Intuitivo per chi? In quale contesto? Con quanta memoria richiesta? Con possibilitÃ  di tornare indietro? Con che tipo di errore recuperabile? Se il requisito resta vago, la UI puÃ² anche essere elegante e comunque fragile.</p>
+<p>L&apos;accessibilitÃ  cognitiva riguarda molte piÃ¹ persone di quanto immaginiamo. Non solo disabilitÃ  permanenti, ma anche stress, stanchezza, lingua non madre, fretta, etÃ , distrazioni, poca familiaritÃ  con il servizio. Compilare un form dal telefono, in metropolitana, con poco tempo e connessione instabile Ã¨ giÃ  un test di accessibilitÃ .</p>
+<p>Per questo l&apos;articolo non va letto come una checklist in piÃ¹. Ãˆ un cambio di posizione nel processo. Prima di scegliere componenti, font o layout, il team dovrebbe chiedersi: che cosa deve ricordare l&apos;utente? Che cosa deve capire senza istruzioni esterne? Che cosa deve poter controllare? Dove puÃ² sbagliare senza perdere tutto?</p>
+<p>Il caveat Ã¨ chiaro: il paper lavora sul mobile learning, quindi non va venduto come formula universale per ogni prodotto digitale. Ãˆ una traccia di metodo. Va adattata, verificata con persone reali e collegata agli standard W3C/WAI quando si passa alla produzione.</p>
+<p>Il valore editoriale perÃ² resta forte, perchÃ© aiuta a vedere un punto spesso invisibile: l&apos;interfaccia non Ã¨ il primo luogo in cui si progetta l&apos;esperienza. Prima ci sono scelte di prioritÃ , linguaggio, vincoli, metriche e responsabilitÃ . Una UI accessibile nasce da un brief che sa giÃ  quali barriere vuole evitare.</p>
+<p>Visualmente il post funziona bene con un tavolo diviso in due: da una parte post-it vaghi come â€œsempliceâ€ e â€œchiaroâ€; dall&apos;altra carte-requisito con bisogno, barriera, scelta e test. Ãˆ lÃ¬ che una frase generica diventa un impegno verificabile.</p>
+<p>Per un team, questa impostazione cambia anche il dialogo interno. Designer, developer, product manager e stakeholder non discutono piÃ¹ solo se una schermata â€œsembra chiaraâ€, ma quali condizioni deve rispettare per esserlo davvero. Ãˆ una forma di responsabilitÃ  pratica: meno opinioni assolute, piÃ¹ criteri osservabili.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Paper UXR su cognitive accessibility, 2026-05-29.</li>
+<li>W3C WAI, fondamenti di accessibilitÃ .</li>
+<li>Nota editoriale: articolo basato su brief legacy e frame Figma; il metodo va adattato al dominio e testato con utenti reali.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Google risponde, ma da dove?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/google-risponde-ma-da-dove</link>
+      <guid isPermaLink="false">POST 04</guid>
+      <pubDate>Wed, 08 Jul 2026 06:54:00 GMT</pubDate>
+      <description><![CDATA[Gli AI Overviews cambiano la ricerca: non mostrano solo link, ma una sintesi giÃ  pronta.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-04-google-risponde-ma-da-dove.png" alt="Google risponde ma da dove" /></figure>
+<h1>Google risponde, ma da dove?</h1>
+<p>Per anni cercare su Google ha significato guardare una lista di link, scegliere una fonte, aprire una pagina e costruire da soli una risposta. Con gli AI Overviews, una parte di quel lavoro viene anticipata dall&apos;interfaccia: la pagina di ricerca non indica solo dove andare, ma propone una sintesi giÃ  pronta.</p>
+<p>Il post â€œGoogle risponde, ma da dove?â€ non Ã¨ un contenuto sull&apos;AI come tecnologia spettacolare. Ãˆ un contenuto sul design dell&apos;informazione. Quando una risposta occupa la parte piÃ¹ autorevole della pagina, cambia il modo in cui attribuiamo fiducia, leggiamo le fonti e decidiamo se approfondire.</p>
+<p>Il brief cita uno studio arXiv del 13 maggio 2026 sugli AI Overviews. Il dato centrale disponibile Ã¨ preciso: 55.393 query, 98.020 claim atomici e circa l&apos;11,0% dei claim classificato come non supportato dalle pagine citate. Ãˆ un numero da non trasformare in panico, ma nemmeno da ignorare. Se una sintesi sembra affidabile perchÃ© cita fonti, la fedeltÃ  fra risposta e fonti diventa parte dell&apos;esperienza utente.</p>
+<p>La questione non Ã¨ solo â€œGoogle sbaglia o non sbagliaâ€. Ãˆ piÃ¹ sottile: una sintesi decide cosa entra, cosa resta fuori, in che ordine viene presentato e quanto una fonte viene rispettata. Anche quando il testo Ã¨ corretto, la selezione puÃ² cambiare la percezione del tema.</p>
+<p>Il caveat conta molto. Lo studio Ã¨ un preprint e osserva un prodotto in evoluzione. Gli AI Overviews cambiano nel tempo, variano per query, lingua, area geografica e periodo. Quindi il dato va letto come fotografia utile, non come verdetto definitivo su ogni ricerca.</p>
+<p>Il punto progettuale perÃ² rimane. Se una risposta AI cita pagine, il lettore dovrebbe poter verificare facilmente il percorso: quale frase viene da quale fonte? Che cosa Ã¨ inferenza? Che cosa Ã¨ supportato davvero? Dove termina la sintesi e dove inizia l&apos;interpretazione?</p>
+<p>La visualizzazione suggerita dal brief Ã¨ efficace: una SERP come tavolo editoriale, con link che entrano in una macchina-sintesi; oppure fili che collegano risposta e fonti, alcuni solidi e alcuni spezzati. Ãˆ una metafora semplice per una domanda complessa: come si disegna la fiducia?</p>
+<p>Un motore di ricerca che risponde direttamente non Ã¨ piÃ¹ solo un indice. Diventa un&apos;interfaccia editoriale. E ogni interfaccia editoriale dovrebbe rendere visibili le proprie scelte, soprattutto quando quelle scelte orientano ciÃ² che milioni di persone considerano â€œla rispostaâ€.</p>
+<p>Per questo il tema non riguarda solo chi lavora nei media o nella SEO. Riguarda chiunque progetti prodotti informativi: assistenti, knowledge base, chatbot interni, motori di ricerca aziendali. Una risposta sintetica Ã¨ utile solo se lascia una traccia abbastanza chiara da poter essere controllata.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>arXiv, studio su AI Overviews, 2026-05-13.</li>
+<li>The Verge, contesto su evoluzione dei servizi Google Search.</li>
+<li>Nota editoriale: il post 08 ha titolo quasi identico e va trattato come probabile revisione o duplicato separato.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Chi decide dove vive l&apos;AI?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/chi-decide-dove-vive-l-ai</link>
+      <guid isPermaLink="false">POST 05</guid>
+      <pubDate>Wed, 08 Jul 2026 06:55:00 GMT</pubDate>
+      <description><![CDATA[L'AI non vive nel vuoto: ha bisogno di edifici, energia, acqua, linee elettriche e accordi locali.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-05-chi-decide-dove-vive-l-ai.png" alt="Chi decide dove vive l&apos;AI" /></figure>
+<h1>Chi decide dove vive l&apos;AI?</h1>
+<p>Quando parliamo di AI, pensiamo a modelli, prompt, chip e applicazioni. Quasi mai pensiamo a una strada, a una cabina elettrica, a una bolletta, a un impianto di raffreddamento o a un quartiere che si ritrova un data center vicino casa. Eppure l&apos;AI, per funzionare, deve vivere da qualche parte.</p>
+<p>Il post â€œChi decide dove vive l&apos;AI?â€ nasce da questa tensione. Nel brief storico viene citato un dato attribuito a Data Center Watch e ripreso da Tom&apos;s Hardware: nei primi mesi del 2026 oltre 75 progetti, per circa 130 miliardi di dollari, sarebbero stati bloccati o ritardati. Ãˆ un dato da leggere come indicatore del conflitto, non come misura definitiva dell&apos;impatto ambientale.</p>
+<p>La notizia Ã¨ interessante perchÃ© mostra che la crescita digitale non Ã¨ solo questione di domanda di mercato. Ãˆ anche negoziazione con territori reali. Un data center puÃ² portare investimenti, capacitÃ  computazionale e infrastrutture. PuÃ² perÃ² anche sollevare domande su energia, acqua, rumore, paesaggio, prioritÃ  pubbliche e distribuzione dei benefici.</p>
+<p>Il digitale ha spesso una parte visibile e una nascosta. La parte visibile Ã¨ l&apos;app che risponde, il servizio piÃ¹ veloce, il generatore di immagini, il chatbot in azienda. La parte nascosta sono edifici, permessi, reti, consumo energetico, sistemi di raffreddamento e comunitÃ  che chiedono spiegazioni.</p>
+<p>Il caveat evita la morale facile. Non tutti i data center hanno lo stesso impatto, non tutte le opposizioni hanno le stesse ragioni e non ogni progetto va letto come minaccia. Il punto non Ã¨ dire â€œdata center sÃ¬â€ o â€œdata center noâ€, ma chiedere quali informazioni servono per decidere bene.</p>
+<p>Quale energia alimenta l&apos;impianto? Quale acqua usa? Quanto rumore produce? Quali benefici restano sul territorio? Che cosa viene misurato pubblicamente? Chi partecipa alla decisione? In un progetto infrastrutturale, queste domande non sono ostacoli alla tecnologia: sono parte della tecnologia.</p>
+<p>La visualizzazione del carosello immagina una mappa di quartiere con una grande scatola luminosa collegata a cavi, acqua e case. Ãˆ una scelta giusta perchÃ© traduce il â€œcloudâ€ in scala urbana. La nuvola diventa edificio. Il modello diventa linea elettrica. La risposta automatica diventa consumo locale.</p>
+<p>La lezione piÃ¹ utile Ã¨ semplice: quando una tecnologia cresce, cresce anche la sua impronta fisica. Progettare l&apos;AI significa progettare anche dove abita, come si spiega e quali limiti accetta.</p>
+<p>Questo non rende ogni progetto sospetto. Rende perÃ² insufficiente raccontare l&apos;AI solo come software. Se l&apos;infrastruttura entra in una comunitÃ , anche la comunicazione deve entrare nella comunitÃ : dati leggibili, scenari, tradeoff e responsabilitÃ  chiare. Senza questa parte, il consenso arriva sempre troppo tardi.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Tom&apos;s Hardware / Data Center Watch, 2026-06-13.</li>
+<li>The Atlantic, contesto critico sui data center, 2026-06.</li>
+<li>Nota editoriale: dato da fonte secondaria; da usare come indicatore di tensione territoriale, non come misura completa dell&apos;impatto.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>AccessibilitÃ  non Ã¨ checklist</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/accessibilita-non-e-checklist</link>
+      <guid isPermaLink="false">POST 06</guid>
+      <pubDate>Wed, 08 Jul 2026 06:56:00 GMT</pubDate>
+      <description><![CDATA[L'accessibilitÃ  diventa piÃ¹ forte quando le persone disabili partecipano alla definizione del problema.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-06-accessibilita-non-e-checklist.png" alt="Accessibilita non e checklist" /></figure>
+<h1>AccessibilitÃ  non Ã¨ checklist</h1>
+<p>Molti team trattano l&apos;accessibilitÃ  come una fase di controllo: il prodotto Ã¨ quasi pronto, poi qualcuno verifica se passa le regole minime. Ãˆ meglio di niente, ma Ã¨ tardi. Il post â€œAccessibilitÃ  non Ã¨ checklistâ€ ribalta il punto: l&apos;accessibilitÃ  diventa davvero generativa quando entra nel modo in cui il problema viene definito.</p>
+<p>Il brief storico si basa su un paper arXiv del 9 giugno 2026 che analizza proposte di progetti LLM-based per accessibilitÃ  in una tech company brasiliana. Il dato centrale citato Ã¨ contenuto ma utile: 14 proposte e un focus group con 9 partecipanti. Il valore non Ã¨ la scala statistica, ma il processo osservato.</p>
+<p>La domanda chiave Ã¨: chi formula il bisogno? Un team puÃ² progettare â€œperâ€ persone con disabilitÃ , immaginandole come utenti finali da testare alla fine. Oppure puÃ² progettare â€œconâ€ loro, portandole nel brief, nelle prioritÃ , negli esempi, nei criteri di successo. La differenza sembra sottile, ma cambia il prodotto.</p>
+<p>Quando le persone coinvolte partecipano alla definizione del problema, emergono dettagli che una checklist non vede. Non solo â€œsupportare screen readerâ€, ma capire dove l&apos;utente perde controllo. Non solo â€œsemplificareâ€, ma chiarire quali errori sono recuperabili. Non solo â€œaggiungere alternativeâ€, ma decidere quali alternative sono davvero equivalenti.</p>
+<p>Il caveat Ã¨ necessario: lo studio Ã¨ qualitativo e contestuale. Non va raccontato come ricetta universale, nÃ© come prova che ogni azienda debba copiare lo stesso processo. Va letto come segnale metodologico: l&apos;accessibilitÃ  funziona meglio quando Ã¨ cultura progettuale, non decorazione normativa.</p>
+<p>Questo Ã¨ particolarmente importante nei progetti AI. Gli LLM possono promettere assistenza, automazione, riassunti e personalizzazione, ma possono anche introdurre opacitÃ , errori, dipendenza dal contesto e nuove barriere. Se la persona disabile arriva solo nel test finale, molte decisioni saranno giÃ  chiuse.</p>
+<p>Il visual del post immagina un tavolo di progettazione dove le persone disabili non sono in fondo al percorso, ma al centro del brief. Ãˆ una metafora corretta: l&apos;accessibilitÃ  non Ã¨ un adesivo da applicare su un&apos;interfaccia. Ãˆ una domanda sul potere decisionale dentro il progetto.</p>
+<p>La frase da salvare Ã¨ questa: una buona accessibilitÃ  non aggiunge solo supporto. Chiarisce contesto, controllo, errori, alternative e autonomia. E spesso migliora il prodotto per molte piÃ¹ persone di quelle per cui pensavamo di progettare.</p>
+<p>In pratica significa spostare l&apos;accessibilitÃ  dalle retrovie al tavolo delle decisioni. Non come voce separata o specialismo da convocare quando tutto Ã¨ chiuso, ma come criterio che aiuta a scegliere cosa costruire, cosa scartare e come misurare un miglioramento reale.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>arXiv, paper su accessibilitÃ  come innovazione guidata da persone disabili, 2026-06-09.</li>
+<li>W3C WAI, fondamenti di accessibilitÃ .</li>
+<li>Nota editoriale: studio qualitativo e contestuale; non va generalizzato come formula valida per ogni organizzazione.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>I pixel avevano carattere: Susan Kare e il computer meno ostile</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/i-pixel-avevano-carattere</link>
+      <guid isPermaLink="false">POST 07</guid>
+      <pubDate>Wed, 08 Jul 2026 06:57:00 GMT</pubDate>
+      <description><![CDATA[Prima delle emoji, icone minuscole aiutavano le persone a capire il computer.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-07-i-pixel-avevano-carattere.png" alt="I pixel avevano carattere" /></figure>
+<h1>I pixel avevano carattere: Susan Kare e il computer meno ostile</h1>
+<p>Prima delle emoji, prima degli sticker e molto prima delle interfacce piene di animazioni, c&apos;erano icone minuscole che dovevano fare un lavoro enorme: rendere il computer meno ostile. Il post â€œI pixel avevano carattereâ€ parte dalla storia di Susan Kare e delle icone del Macintosh per raccontare una lezione ancora attuale.</p>
+<p>Negli anni Ottanta il personal computer non era un oggetto ovvio. Per molte persone era una macchina tecnica, distante, piena di comandi da imparare. Le icone servivano a tradurre quel mondo in metafore comprensibili: cestino, cartella, mano, sorriso. Non erano decorazioni. Erano piccoli accordi fra sistema e utente.</p>
+<p>Il dato storico usato nel brief Ã¨ semplice: icone e font del Macintosh 1984, con materiali conservati dal MoMA e raccontati anche da istituzioni di design come Cooper Hewitt. Non Ã¨ una notizia recente, e va dichiarato. Ãˆ un contenuto evergreen, utile proprio perchÃ© mostra da dove vengono molte abitudini che oggi diamo per scontate.</p>
+<p>Il fascino non sta nella nostalgia, ma nei vincoli. Pochi pixel, pochi colori, pochissimo spazio. In condizioni cosÃ¬ strette, ogni segno deve avere una ragione. Una curva di troppo si perde, un dettaglio sbagliato confonde, una metafora poco chiara non sopravvive all&apos;uso quotidiano.</p>
+<p>Questa Ã¨ una lezione molto contemporanea. Anche oggi, quando abbiamo schermi ad alta risoluzione e componenti ricchi, il problema Ã¨ lo stesso: aiutare le persone a capire cosa possono fare. Una buona icona riduce paura, suggerisce un&apos;azione, crea memoria e rende un sistema complesso piÃ¹ avvicinabile senza manuale.</p>
+<p>Il caveat serve a evitare un tono celebrativo generico. Non basta dire â€œle icone erano belleâ€. Bisogna spiegare perchÃ© funzionavano: perchÃ© collegavano un&apos;azione digitale a un&apos;esperienza concreta. Buttare un file nel cestino non Ã¨ fisicamente vero, ma Ã¨ cognitivamente utile.</p>
+<p>Il visual ideale Ã¨ una griglia pixel, un quaderno a quadretti, un vecchio monitor che sembra parlare attraverso piccoli segni. La trasformazione dal punto su carta al desktop rende visibile il lavoro invisibile del design: scegliere cosa togliere per far capire meglio.</p>
+<p>Oggi parliamo spesso di interfacce â€œintuitiveâ€. La storia di Kare ricorda che l&apos;intuizione non appare da sola. Ãˆ progettata, provata, limata e resa memorabile. A volte, con pochissimi pixel.</p>
+<p>Ãˆ anche una storia utile per non confondere semplicitÃ  e povertÃ  visiva. Quelle icone erano semplici perchÃ© dovevano essere leggibili, non perchÃ© mancasse ambizione. La loro forza stava nel togliere fino a lasciare un gesto riconoscibile: aprire, buttare, spostare, sorridere.</p>
+<p>Ãˆ una piccola grammatica visiva che ancora ereditiamo.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>MoMA, materiali e audio legati alle icone Macintosh.</li>
+<li>Cooper Hewitt, approfondimento su Susan Kare.</li>
+<li>Nota editoriale: contenuto storico evergreen; non va presentato come news, ma come rubrica di cultura visuale.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Google risponde, ma da dove? Una seconda lettura sul controllo delle fonti</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/google-risponde-ma-da-dove-duplicato</link>
+      <guid isPermaLink="false">POST 08</guid>
+      <pubDate>Wed, 08 Jul 2026 06:58:00 GMT</pubDate>
+      <description><![CDATA[Il titolo replica quasi certamente il post 04; qui Ã¨ trattato come voce separata.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-08-google-risponde-ma-da-dove.png" alt="Google risponde, ma da dove" /></figure>
+<h1>Google risponde, ma da dove? Una seconda lettura sul controllo delle fonti</h1>
+<p>POST 08 ha lo stesso titolo sostanziale di POST 04: â€œGoogle risponde, ma da dove?â€. Va quindi trattato come probabile revisione o duplicato, non come tema completamente nuovo. La scelta piÃ¹ prudente Ã¨ mantenerlo come voce separata nel backfill, segnalando la sovrapposizione e usando un taglio leggermente diverso.</p>
+<p>Se POST 04 racconta il cambio di natura della pagina di ricerca, questa seconda lettura puÃ² concentrarsi su un dettaglio progettuale: dove mettere il controllo. Quando una risposta AI appare in alto, giÃ  sintetizzata, l&apos;utente dovrebbe capire non solo â€œquali fonti sono citateâ€, ma anche quale parte della risposta dipende da quali fonti.</p>
+<p>Il materiale legacy cita uno studio arXiv del 13 maggio 2026 sugli AI Overviews, con 55.393 query, 98.020 claim atomici e circa l&apos;11,0% dei claim classificato come non supportato dalle pagine citate. Ãˆ un dato abbastanza concreto da aprire una discussione, ma non va usato come sentenza definitiva. Il prodotto cambia, lo studio Ã¨ un preprint e il comportamento puÃ² variare nel tempo.</p>
+<p>Il problema interessante Ã¨ di interfaccia. Una citazione alla fine della risposta puÃ² non bastare. Se una frase specifica non Ã¨ supportata, l&apos;utente spesso non ha gli strumenti per accorgersene. E se deve aprire tutte le fonti una per una per controllare ogni passaggio, la promessa di comoditÃ  si trasforma in lavoro nascosto.</p>
+<p>Per progettare fiducia servono livelli diversi. Primo: distinguere chiaramente risposta, fonte e inferenza. Secondo: rendere ispezionabili i passaggi piÃ¹ importanti. Terzo: non far sembrare equivalente una fonte primaria, un articolo di contesto e una pagina poco pertinente. Quarto: ammettere quando la risposta Ã¨ incerta.</p>
+<p>Il caveat Ã¨ lo stesso del post gemello: non bisogna trasformare un dato di ricerca in una morale assoluta contro le sintesi automatiche. Le sintesi possono essere utili. Il punto Ã¨ che, quando diventano l&apos;elemento dominante di una pagina, devono essere progettate per restare verificabili.</p>
+<p>Il visual puÃ² riprendere i fili fra risposta e fonti, ma con una differenza: mostrare un pannello di controllo, una specie di radiografia della risposta. Alcuni fili sono solidi, altri deboli, altri da controllare. Ãˆ un modo per raccontare che la trasparenza non Ã¨ solo â€œmettere linkâ€, ma mostrare relazioni.</p>
+<p>Questo duplicato probabile, se pubblicato, andrebbe differenziato dal POST 04 oppure unito a quello. Come articolo backfill, resta utile perchÃ© documenta una domanda centrale del ciclo: non basta che Google risponda. Dobbiamo capire come ci permette di controllare.</p>
+<p>La duplicazione, in fondo, dice qualcosa anche sul tema: quando un cambiamento di interfaccia Ã¨ cosÃ¬ rilevante, la stessa domanda torna da piÃ¹ angolazioni. Una volta guardiamo la fedeltÃ  alle fonti, un&apos;altra il punto esatto in cui l&apos;utente puÃ² verificare.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>arXiv, studio su AI Overviews, 2026-05-13.</li>
+<li>The Verge, contesto su evoluzione dei servizi Google Search.</li>
+<li>Nota editoriale: probabile duplicato/revisione di POST 04; trattato come voce separata per rispettare la lista Figma.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Il design si sente: quando lo spazio diventa interfaccia</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/il-design-si-sente</link>
+      <guid isPermaLink="false">POST 09</guid>
+      <pubDate>Wed, 08 Jul 2026 06:59:00 GMT</pubDate>
+      <description><![CDATA[Da 3daysofdesign 2026 emerge un segnale: meno oggetti isolati e piÃ¹ ambienti da vivere.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-09-il-design-si-sente.png" alt="Il design si sente" /></figure>
+<h1>Il design si sente: quando lo spazio diventa interfaccia</h1>
+<p>Il design non Ã¨ solo ciÃ² che guardiamo. Ãˆ ciÃ² che ci fa fare. Una sedia cambia la postura, una lampada cambia il ritmo di una stanza, un materiale invita o respinge il contatto, un suono puÃ² rendere un ambiente piÃ¹ abitabile o piÃ¹ faticoso. Il post â€œIl design si senteâ€ usa 3daysofdesign 2026 come occasione per parlare di UX senza schermi.</p>
+<p>Il frame Figma e il materiale collegato indicano un segnale culturale: meno oggetti isolati, piÃ¹ ambienti da vivere, toccare, ascoltare e attraversare. Nel brief compare anche il dato di oltre 400 partecipanti e il tema 2026 â€œMake This Moment Matterâ€. Ãˆ un dato descrittivo, utile a dare scala alla manifestazione, non una prova scientifica di un trend globale.</p>
+<p>La parte interessante Ã¨ il passaggio dall&apos;oggetto all&apos;esperienza. Una sedia non esiste solo come forma da fotografare. Esiste quando qualcuno ci si siede, resta, parla, aspetta, lavora o si sente fuori posto. Una lampada non Ã¨ solo un prodotto: regola attenzione, intimitÃ , orientamento, comfort.</p>
+<p>Per Cutowl questo Ã¨ un modo concreto per parlare di progettazione. Anche un ambiente fisico ha onboarding, feedback, affordance e micro-decisioni. Un ingresso comunica dove andare. Un tavolo suggerisce come stare insieme. Un divano puÃ² incoraggiare conversazione o isolamento. La UX non nasce con lo schermo: lo schermo ne ha solo reso piÃ¹ visibile il vocabolario.</p>
+<p>Il caveat va detto chiaramente. Le fonti citate sono reportage di settore, non una ricerca scientifica. Quindi il tema va trattato come mappa di segnali, non come â€œnuova regolaâ€ del design contemporaneo. Non tutto il design sta diventando multisensoriale; perÃ² Ã¨ utile osservare quando una manifestazione sposta l&apos;attenzione dall&apos;oggetto all&apos;atmosfera.</p>
+<p>La visualizzazione del carosello immagina una stanza multisensoriale: luce, suono, tatto, convivialitÃ . Funziona perchÃ© mostra che il design puÃ² essere letto come sistema di comportamenti. Non solo una collezione di cose belle, ma una regia di gesti.</p>
+<p>Questa lettura aiuta anche chi progetta digitale. Un&apos;app, un sito o un servizio non sono fatti solo di schermate. Sono ambienti di decisione. Possono farci sentire orientati o persi, autonomi o spinti, accolti o fuori posto. Cambia il materiale, non la responsabilitÃ .</p>
+<p>Alla fine la domanda non Ã¨ â€œqual Ã¨ l&apos;oggetto piÃ¹ bello?â€. Ãˆ piÃ¹ utile chiedere: quale senso stiamo trascurando quando progettiamo? Vista, certo. Ma anche tatto, ritmo, ascolto, postura, calma, fiducia.</p>
+<p>Questa domanda rende il contenuto meno decorativo e piÃ¹ operativo. Anche in un progetto digitale possiamo chiederci quale atmosfera produciamo: fretta o calma, esplorazione o chiusura, controllo o dipendenza. Il design si sente proprio lÃ¬, nelle conseguenze minute dell&apos;uso.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Wallpaper, reportage 3daysofdesign 2026, 2026-06-13.</li>
+<li>Livingetc, contesto su 3daysofdesign 2026.</li>
+<li>Nota editoriale: source quality segnata come <code>frame_titles_only</code> nel manifest perchÃ© la caption social manager puÃ² essere assente o non canonica per questo post.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Antimateria in camion: la scala minuscola della scienza estrema</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/antimateria-in-camion</link>
+      <guid isPermaLink="false">POST 10</guid>
+      <pubDate>Wed, 08 Jul 2026 07:00:00 GMT</pubDate>
+      <description><![CDATA[Il team BASE del CERN ha trasportato 92 antiprotoni in una trappola criogenica mobile.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-10-antimateria-in-camion.png" alt="Antimateria in camion" /></figure>
+<h1>Antimateria in camion: la scala minuscola della scienza estrema</h1>
+<p>â€œAntimateria in camionâ€ sembra un titolo da film. Invece la parte piÃ¹ interessante della storia Ã¨ proprio quanto poco assomigli al cinema. Il team BASE del CERN ha trasportato antiprotoni usando una trappola criogenica mobile montata su camion. Non energia incontrollabile, non pericolo spettacolare: un esperimento di precisione.</p>
+<p>Il dato centrale del post Ã¨ 92 antiprotoni. Ãˆ un numero piccolo, quasi comico se lo confrontiamo con l&apos;immaginario pop dell&apos;antimateria. Ma Ã¨ proprio quel contrasto a rendere la storia memorabile: un camion, molta ingegneria, freddo estremo, campi magnetici e un carico quasi invisibile.</p>
+<p>PerchÃ© spostare antimateria? Il punto non Ã¨ fare un trasporto eccezionale per stupire. Spostare antiprotoni in modo controllato puÃ² permettere di portarli verso strumenti migliori e ambienti piÃ¹ stabili, utili a misure di precisione. In fisica fondamentale, migliorare una misura puÃ² contare piÃ¹ di costruire una scena spettacolare.</p>
+<p>Il caveat Ã¨ obbligatorio: non parliamo di antimateria â€œutilizzabileâ€ come nei film e non di un carico esplosivo. La quantitÃ  Ã¨ minuscola e il risultato va letto come avanzamento tecnico per ricerca di precisione, non come promessa energetica o minaccia fantascientifica.</p>
+<p>Questo rende il post una buona lezione di comunicazione scientifica. Spesso le notizie piÃ¹ curiose vengono rovinate dall&apos;effetto wow. Qui invece il wow funziona solo se viene corretto. L&apos;incredibile non Ã¨ â€œtrasportare una bomba di antimateriaâ€; Ã¨ costruire un sistema cosÃ¬ delicato da custodire pochissime particelle abbastanza a lungo da studiarle meglio.</p>
+<p>La visualizzazione suggerita dal figma-map Ã¨ perfetta: un camion enorme che trasporta un puntino quasi invisibile, oppure una trappola criogenica sezionata con particelle sospese. La scala Ã¨ il vero colpo di scena. Grande infrastruttura, carico minuscolo, precisione enorme.</p>
+<p>Ãˆ anche un modo per ricordare che la scienza non procede solo con nuove teorie, ma con logistica, materiali, controllo termico, magneti, strade e dispositivi trasportabili. La frontiera puÃ² avere la forma di un apparato che tiene fermo quasi niente.</p>
+<p>Alla fine la domanda resta semplice e potente: quanto grande immaginavi un esperimento sull&apos;antimateria? Probabilmente molto piÃ¹ grande del suo carico reale.</p>
+<p>Ãˆ un buon promemoria anche per la divulgazione: spesso una storia scientifica diventa piÃ¹ forte quando riduce la scala, non quando la gonfia. Dire â€œ92 antiprotoniâ€ non toglie meraviglia. La concentra. Ci costringe a guardare la precisione invece dello spettacolo.</p>
+<p>Raccontata cosÃ¬, l&apos;antimateria smette di essere un simbolo generico di futuro estremo e diventa un problema di cura: mantenere, isolare, raffreddare, trasportare e misurare. Sono verbi meno cinematografici, ma molto piÃ¹ vicini al lavoro reale dei laboratori.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>CERN, notizia sull&apos;esperimento BASE e trasporto di antimateria, 2026-03-24.</li>
+<li>AP, copertura secondaria del trasporto.</li>
+<li>Nota editoriale: dati derivati da figma-map e brief legacy; evitare letture cinematografiche o promesse applicative.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Dove conviene togliere CO2?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/dove-conviene-togliere-co2</link>
+      <guid isPermaLink="false">POST 11</guid>
+      <pubDate>Wed, 08 Jul 2026 07:01:00 GMT</pubDate>
+      <description><![CDATA[Uno studio confronta rinnovabili e direct air capture per dollaro investito.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-11-dove-conviene-togliere-co2.png" alt="Dove conviene togliere CO2" /></figure>
+<h1>Dove conviene togliere CO2?</h1>
+<p>Le tecnologie climatiche non competono solo sul fascino. Competono su tempo, costo, energia richiesta, benefici collaterali e condizioni reali. Il post â€œDove conviene togliere CO2?â€ parte da una domanda concreta: a paritÃ  di dollaro investito, conviene puntare su rinnovabili o direct air capture?</p>
+<p>Il brief Figma cita uno studio discusso da Boston University e Communications Sustainability. La sintesi disponibile Ã¨ chiara: le rinnovabili risultano generalmente piÃ¹ efficaci per dollaro, mentre la DAC diventa competitiva solo in scenari di forte riduzione dei costi e input energetici piÃ¹ favorevoli.</p>
+<p>La parte importante Ã¨ non trasformare il confronto in una gara fra tecnologia buona e tecnologia cattiva. La cattura diretta della CO2 Ã¨ interessante perchÃ© promette di rimuovere dall&apos;aria emissioni giÃ  presenti. Ma ogni euro speso in una direzione non viene speso altrove. Questo Ã¨ il costo-opportunitÃ : scegliere una leva significa rinunciare, almeno in parte, a un&apos;altra.</p>
+<p>Nel clima, la domanda â€œfunziona?â€ Ã¨ necessaria ma incompleta. Serve anche chiedere: quando funziona? Dove? Con quale energia? A quale costo? Con quali benefici sanitari? Rispetto a quale alternativa immediata? Una tecnologia puÃ² essere utile in uno scenario e poco prioritaria in un altro.</p>
+<p>Il caveat Ã¨ esplicito nel materiale: il modello riguarda scenari e regioni USA, quindi non va trasformato in regola globale. Le politiche climatiche dipendono da reti elettriche, mix energetico, industrie locali, salute pubblica, geografia, urgenza e capacitÃ  istituzionale. Un risultato modellistico non sostituisce una policy universale.</p>
+<p>Il valore editoriale sta nel metodo. Invece di innamorarsi della soluzione piÃ¹ nuova, il post invita a confrontare leve. Questo Ã¨ un atteggiamento utile anche fuori dal clima: valutare una tecnologia significa misurare impatto, alternative e vincoli, non solo promessa.</p>
+<p>Visualmente il figma-map propone due leve o una bilancia: rinnovabili da una parte, DAC dall&apos;altra, con CO2 evitata, dollari e benefici sanitari come pesi. Ãˆ una metafora semplice perchÃ© rende visibile la parte piÃ¹ difficile: ogni scelta sposta risorse.</p>
+<p>La conclusione non Ã¨ â€œnon serve la direct air captureâ€. Ãˆ piÃ¹ sobria: le tecnologie climatiche vanno ordinate per impatto e contesto. A volte la soluzione piÃ¹ futuribile non Ã¨ quella con piÃ¹ beneficio oggi. E decidere bene significa accettare questa tensione.</p>
+<p>Per un lettore non tecnico, questa Ã¨ la parte piÃ¹ utile: imparare a chiedere rispetto a che cosa una tecnologia Ã¨ conveniente. Rispetto al costo, al tempo, all&apos;energia, alla salute pubblica, alla riduzione immediata delle emissioni. Senza questa domanda, il dibattito resta una classifica di promesse.</p>
+<p>Una buona decisione climatica, invece, somiglia piÃ¹ a un portafoglio di prioritÃ : alcune leve servono subito, altre forse piÃ¹ avanti, altre ancora solo se cambiano condizioni tecniche ed economiche.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Boston University, articolo su rinnovabili e direct air capture, 2026-05-04.</li>
+<li>Communications Sustainability / Nature Portfolio, contesto dello studio.</li>
+<li>Nota editoriale: modello basato su scenari USA; non generalizzare a policy climatica globale.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Il museo appare sul telefono</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/il-museo-appare-sul-telefono</link>
+      <guid isPermaLink="false">POST 12</guid>
+      <pubDate>Wed, 08 Jul 2026 07:02:00 GMT</pubDate>
+      <description><![CDATA[Unhidden Heroines usa la realtÃ  aumentata per far comparire figure femminili accanto ai monumenti.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-12-il-museo-appare-sul-telefono.png" alt="Il museo appare sul telefono" /></figure>
+<h1>Il museo appare sul telefono</h1>
+<p>Un museo non deve per forza stare dentro un edificio. A volte puÃ² apparire sopra una cittÃ , attraverso lo schermo di un telefono. Il post â€œIl museo appare sul telefonoâ€ racconta Unhidden Heroines, progetto legato allo Smithsonian che usa la realtÃ  aumentata per far comparire figure femminili accanto ai monumenti del National Mall.</p>
+<p>Il punto non Ã¨ aggiungere un effetto digitale. Ãˆ rendere visibile un&apos;assenza nello spazio pubblico. I monumenti raccontano sempre una memoria selettiva: chi viene scolpito, chi resta fuori, chi viene ricordato in grande e chi appena citato. Un layer AR puÃ² funzionare come lente temporanea su questa selezione.</p>
+<p>Il materiale Figma cita anche un dato sulla sottorappresentazione femminile nei libri di storia, indicato come circa il 10% delle figure citate dall&apos;articolo. Il caveat Ã¨ giÃ  presente nel brief: il numero va maneggiato con cura e verificato direttamente sui materiali Smithsonian prima di usarlo come claim centrale. Per questo nell&apos;articolo resta sullo sfondo, non come pilastro dimostrativo.</p>
+<p>La parte piÃ¹ interessante Ã¨ progettuale. Una persona punta il telefono verso un luogo conosciuto e vede cambiare il significato del posto. L&apos;interfaccia non la porta altrove: la riporta lÃ¬, ma con piÃ¹ informazioni. Il digitale non serve a scappare dal mondo fisico, ma a leggerlo meglio.</p>
+<p>Naturalmente la realtÃ  aumentata non sostituisce monumenti permanenti, programmi educativi, archivi, investimenti culturali o scelte istituzionali. PuÃ² perÃ² attivare una conversazione. PuÃ² far notare il vuoto, trasformare una passeggiata in domanda, rendere visibile ciÃ² che la pietra non mostra.</p>
+<p>Il visual del carosello lavora bene su questa idea: un piedistallo trasparente che si riempie tramite smartphone, oppure visitatori davanti a un monumento mentre una figura storica appare come presenza digitale. Ãˆ una scena immediata, leggera, ma non banale.</p>
+<p>Per chi progetta esperienze digitali, il caso Ã¨ utile perchÃ© mostra una funzione nobile del layer informativo. Non aggiungere complessitÃ  per stupire, ma dare contesto al momento giusto, nel luogo giusto, senza cancellare il mondo davanti a noi.</p>
+<p>La domanda finale Ã¨ anche una domanda di progetto urbano: quale assenza vorresti rendere visibile nella tua cittÃ ? Non tutto si risolve con uno schermo, ma a volte uno schermo puÃ² aiutarci a vedere meglio ciÃ² che mancava.</p>
+<p>Il limite da tenere a mente Ã¨ che un layer digitale Ã¨ temporaneo e dipende da accesso, dispositivi e manutenzione. Proprio per questo funziona meglio quando non pretende di sostituire memoria pubblica e istituzioni, ma apre una soglia: guarda qui, questa storia c&apos;era anche se non la vedevi.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>Axios Washington DC, articolo su Unhidden Heroines e National Mall, 2026-06-17.</li>
+<li>Smithsonian American Women&apos;s History Museum, contesto istituzionale.</li>
+<li>Nota editoriale: dato sulla rappresentazione femminile da verificare su fonti Smithsonian prima di usarlo come claim numerico forte.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Una molecola mezzo-Mobius</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/una-molecola-mezzo-mobius</link>
+      <guid isPermaLink="false">POST 13</guid>
+      <pubDate>Wed, 08 Jul 2026 07:03:00 GMT</pubDate>
+      <description><![CDATA[IBM e partner hanno realizzato una molecola con topologia elettronica half-Mobius.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-13-una-molecola-mezzo-mobius.png" alt="Una molecola mezzo-Mobius" /></figure>
+<h1>Una molecola mezzo-Mobius</h1>
+<p>Un nastro di MÃ¶bius Ã¨ giÃ  abbastanza strano: una superficie con una sola faccia e un solo bordo, capace di confondere interno ed esterno. Il post â€œUna molecola mezzo-Mobiusâ€ porta questa immagine in un territorio ancora piÃ¹ piccolo: una molecola con topologia elettronica half-Mobius.</p>
+<p>Il figma-map attribuisce il caso a IBM Research e partner accademici. La sintesi disponibile parla di una molecola studiata atomo per atomo, con topologia elettronica half-Mobius. Il dato visuale citato Ã¨ una molecola C13Cl2 con twist elettronico di 90 gradi per rivoluzione, switchabile tra configurazioni.</p>
+<p>La cosa importante Ã¨ non trasformarla in magia. Non stiamo dicendo che qualcuno abbia piegato un nastro visibile in scala molecolare. La storia riguarda forma, comportamento elettronico e misurazione a scala atomica. La metafora del MÃ¶bius aiuta a immaginare una proprietÃ  difficile, ma non sostituisce la spiegazione scientifica.</p>
+<p>Il post funziona perchÃ© mette insieme frontiera scientifica e cultura del progetto. Quando si lavora a questa scala, forma, energia e funzione non sono categorie separate. Il modo in cui una struttura Ã¨ organizzata puÃ² cambiare le sue proprietÃ . La materia diventa qualcosa da progettare con estrema precisione.</p>
+<p>Il caveat Ã¨ necessario: siamo in laboratorio, con condizioni e strumenti specializzati. Le applicazioni pratiche restano speculative. Non ha senso promettere tecnologie imminenti o materiali rivoluzionari pronti domani. Il valore, per ora, sta nel controllo, nella misura e nella capacitÃ  di rendere osservabile un comportamento sottile.</p>
+<p>Visualmente il carosello ha una forza evidente: un nastro di MÃ¶bius che si contrae fino a diventare una molecola, oppure una struttura atomica sospesa con una piega luminosa. Il dato dei 90 gradi va disegnato come torsione, non spiegato solo con formula chimica.</p>
+<p>Questa Ã¨ una buona lezione su come raccontare scienza complessa. Non serve semplificare fino a tradire. Serve trovare una forma che aiuti il lettore a entrare nella domanda giusta. Qui la forma Ã¨ letteralmente parte della notizia.</p>
+<p>Alla fine, la meraviglia non Ã¨ â€œuna molecola impossibileâ€ in senso vago. Ãˆ piÃ¹ concreta: alla scala piÃ¹ piccola, possiamo osservare e controllare geometrie che sembravano appartenere solo alla matematica o all&apos;immaginazione.</p>
+<p>Questo Ã¨ anche il motivo per cui il post deve restare calmo. La ricerca di base non ha bisogno di essere venduta come prodotto imminente per essere importante. A volte il suo valore Ã¨ aprire una nuova forma mentale: mostrare che la materia puÃ² comportarsi in modi che prima sapevamo appena disegnare.</p>
+<p>In questo senso, la forma non Ã¨ un ornamento della scoperta. Ãˆ il modo piÃ¹ accessibile per avvicinarsi a una proprietÃ  che altrimenti resterebbe chiusa in formule, strumenti e condizioni di laboratorio.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>IBM Research, articolo su half-Mobius molecule, 2026-03-05.</li>
+<li>arXiv, paper collegato alla molecola half-Mobius.</li>
+<li>Nota editoriale: applicazioni pratiche speculative; trattare il caso come risultato di laboratorio e ricerca di base.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>AI trova pianeti nascosti nei dati che avevamo giÃ </title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/ai-trova-pianeti-nascosti</link>
+      <guid isPermaLink="false">POST 14</guid>
+      <pubDate>Wed, 08 Jul 2026 07:04:00 GMT</pubDate>
+      <description><![CDATA[RAVEN rilegge i dati TESS e fa emergere pianeti e candidati.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-14-ai-trova-pianeti-nascosti.png" alt="AI trova pianeti nascosti" /></figure>
+<h1>AI trova pianeti nascosti nei dati che avevamo giÃ </h1>
+<p>A volte non serve guardare un nuovo pezzo di cielo. Serve rileggere meglio i dati che abbiamo giÃ  raccolto. Il post â€œAI trova pianeti nascostiâ€ racconta RAVEN, un progetto che usa machine learning sui dati TESS per individuare segnali di pianeti dentro un archivio astronomico enorme.</p>
+<p>Il figma-map riporta un dato forte: analisi di oltre 2,2 milioni di stelle, 118 pianeti validati e oltre 2.000 candidati ad alta probabilitÃ . La caption aggiunge che il valore non Ã¨ l&apos;AI come magia, ma il cambio di scala: quando gli archivi diventano troppo grandi, una buona lente algoritmica puÃ² far emergere segnali minuscoli.</p>
+<p>Per capire il caso, basta immaginare il metodo dei transiti. Quando un pianeta passa davanti alla sua stella, la luminositÃ  cala appena. Quel calo puÃ² essere minuscolo, breve, confuso da rumore o falsi positivi. Dentro milioni di curve di luce, riconoscere i segnali promettenti diventa un problema di scala.</p>
+<p>Qui il machine learning non sostituisce gli astronomi. Aiuta a ordinare, classificare, filtrare e proporre candidati. Ãˆ una lente, non un oracolo. Questo dettaglio Ã¨ fondamentale per evitare la narrazione â€œl&apos;AI scopre da sola mondi nascostiâ€, piÃ¹ spettacolare ma meno precisa.</p>
+<p>Il caveat Ã¨ altrettanto importante: candidato non significa pianeta confermato. Molti segnali richiedono verifiche successive, controlli indipendenti e osservazioni aggiuntive. Anche i pianeti validati e i candidati vanno raccontati distinguendo bene i livelli di certezza.</p>
+<p>La visualizzazione proposta Ã¨ molto Cutowl: un archivio di curve di luce che diventa una costellazione di pianeti, oppure una lente algoritmica che illumina piccoli mondi nascosti nei dati TESS. Il tema Ã¨ scientifico, ma anche progettuale: come costruiamo strumenti per leggere archivi che superano la capacitÃ  umana di scansione manuale?</p>
+<p>La lezione si estende oltre l&apos;astronomia. Molta conoscenza contemporanea non manca di dati, ma di strumenti per interpretarli. Innovare puÃ² significare raccogliere nuove osservazioni; altre volte significa tornare a ciÃ² che abbiamo giÃ , con domande migliori e modelli piÃ¹ adatti.</p>
+<p>Quanti mondi possono restare nascosti nei dati giÃ  raccolti? La risposta, per ora, Ã¨ abbastanza da rendere utile una nuova lente.</p>
+<p>Ãˆ anche un buon modo per parlare di AI senza attribuirle un ruolo magico. Il modello non â€œvedeâ€ come un telescopio e non decide come una comunitÃ  scientifica. Aiuta a mettere ordine, a dare prioritÃ , a scegliere dove guardare meglio. La scoperta resta un processo condiviso.</p>
+<p>Il bello della storia Ã¨ proprio questo equilibrio: un archivio costruito da strumenti astronomici, un modello che filtra segnali, ricercatori che verificano, e una domanda antica che torna nuova ogni volta che un punto debole nella luce diventa un possibile pianeta.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>University of Warwick, comunicazione sul progetto RAVEN.</li>
+<li>arXiv, paper RAVEN / TESS.</li>
+<li>Space.com, copertura secondaria.</li>
+<li>Nota editoriale: distinguere pianeti validati e candidati; molti candidati richiedono conferma osservativa.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Questa persona esiste davvero?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/questa-persona-esiste-davvero</link>
+      <guid isPermaLink="false">POST 15</guid>
+      <pubDate>Wed, 08 Jul 2026 07:05:00 GMT</pubDate>
+      <description><![CDATA[Quando un avatar AI promuove un prodotto come se fosse una testimonianza reale, il tema Ã¨ design della fiducia.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-15-questa-persona-esiste-davvero.png" alt="Questa persona esiste davvero" /></figure>
+<h1>Questa persona esiste davvero?</h1>
+<p>Se un contenuto pubblicitario sembra una testimonianza reale, ma la persona Ã¨ generata con AI, dove dovrebbe comparire l&apos;etichetta? Il post â€œQuesta persona esiste davvero?â€ parte da una domanda semplice e scomoda: quando decidiamo se fidarci, quali informazioni abbiamo davanti?</p>
+<p>Il figma-map cita casi giornalistici su brand che usano influencer o avatar AI in contenuti promozionali. Il tema non Ã¨ â€œusare AI sÃ¬ o noâ€. Ãˆ progettare il contesto in cui una persona vede un volto, un prodotto, un claim e una call to action. Se il volto non appartiene a una persona reale, il patto comunicativo cambia.</p>
+<p>Il formato UGC funziona perchÃ© sembra vicino: una persona come noi prova qualcosa, racconta, consiglia, mostra. Quando quella persona Ã¨ sintetica, l&apos;effetto puÃ² rimanere simile, ma la relazione non lo Ã¨. Senza disclosure visibile, l&apos;utente rischia di interpretare come esperienza vissuta ciÃ² che Ã¨ costruzione promozionale.</p>
+<p>Il materiale cita The Guardian e l&apos;EU AI Act come contesto. C&apos;Ã¨ anche un riferimento al fatto che in UK non ci siano regole specifiche di disclosure AI per ogni contenuto pubblicitario, mentre nell&apos;UE arrivano obblighi di trasparenza per contenuti sintetici e manipolati. Il punto, per un brand, non Ã¨ aspettare solo la norma: Ã¨ chiedersi che cosa capisce l&apos;utente nel momento della decisione.</p>
+<p>La posizione dell&apos;etichetta Ã¨ progettazione pura. Una disclosure funziona se appare dove si forma la fiducia: vicino al volto, al claim, al prodotto o alla call to action. Se arriva dopo, nascosta in una nota o separata dal contenuto principale, non orienta davvero la scelta.</p>
+<p>Il caveat Ã¨ evitare generalizzazioni. Non ogni avatar Ã¨ ingannevole e non ogni contenuto sintetico Ã¨ problematico. PuÃ² essere creativo, dichiarato, utile, perfino piÃ¹ chiaro di un contenuto tradizionale. Il problema nasce quando il design sfrutta la somiglianza con una testimonianza reale senza dare contesto sufficiente.</p>
+<p>Il visual del carosello immagina un feed sezionato in volto, prodotto e disclosure. Ãˆ l&apos;immagine giusta: il post non parla solo di media sintetici, ma di architettura della fiducia. Dove metti l&apos;informazione cambia ciÃ² che l&apos;utente pensa di vedere.</p>
+<p>La domanda utile per chi comunica Ã¨ meno brillante ma piÃ¹ responsabile: l&apos;utente capisce abbastanza per scegliere se fidarsi? Se la risposta Ã¨ no, il problema non Ã¨ l&apos;AI. Ãˆ il design.</p>
+<p>Questo vale anche quando la piattaforma consente tecnicamente di pubblicare il contenuto. La possibilitÃ  non coincide con la chiarezza. Un brand che usa volti sintetici dovrebbe progettare la disclosure come parte dell&apos;esperienza principale, non come assicurazione legale da nascondere in fondo.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>The Guardian, articolo su brand e influencer AI, 2026-06-21.</li>
+<li>EU AI Act, articolo 50 come contesto su trasparenza.</li>
+<li>Nota editoriale: casi giornalistici; non generalizzare ogni uso di avatar sintetici come ingannevole.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Il consenso puÃ² essere una trappola?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/il-consenso-puo-essere-una-trappola</link>
+      <guid isPermaLink="false">POST 16</guid>
+      <pubDate>Wed, 08 Jul 2026 07:06:00 GMT</pubDate>
+      <description><![CDATA[Nei cookie banner, accettare Ã¨ spesso piÃ¹ facile che rifiutare o revocare.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-16-il-consenso-puo-essere-una-trappola.png" alt="Il consenso puo essere una trappola" /></figure>
+<h1>Il consenso puÃ² essere una trappola?</h1>
+<p>Il consenso dovrebbe essere una scelta. Nei cookie banner, perÃ², spesso assomiglia a un percorso inclinato: accettare Ã¨ immediato, rifiutare richiede piÃ¹ passaggi, modificare Ã¨ ambiguo, revocare diventa difficile. Il post â€œIl consenso puÃ² essere una trappola?â€ racconta questa differenza come problema di design.</p>
+<p>Il figma-map cita un preprint arXiv del 23 marzo 2026 su dark pattern evoluti nei cookie banner. I dati indicati nel materiale sono forti: 14.000 siti, 99% accuracy per il sistema citato e +25% cookie nei casi con barriere alla revoca. Vanno usati con caveat, ma rendono chiaro il tema: la manipolazione non Ã¨ scomparsa, si Ã¨ fatta piÃ¹ sottile.</p>
+<p>Il punto non Ã¨ che ogni banner sia illegittimo. Il punto Ã¨ che la forma della scelta cambia il comportamento. Un pulsante grande, un percorso breve, un colore dominante, una revoca nascosta o un falso opt-out non sono dettagli neutri. Sono decisioni progettuali che possono spingere l&apos;utente mentre pensa di scegliere liberamente.</p>
+<p>La revoca Ã¨ particolarmente importante. Molti sistemi sembrano concentrarsi sul consenso iniziale, ma un buon consenso dovrebbe restare controllabile nel tempo. Se accettare Ã¨ facile e revocare Ã¨ difficile, il controllo Ã¨ asimmetrico.</p>
+<p>Il caveat Ã¨ esplicito: il materiale parla di preprint ed esempi generici. Quindi non bisogna trasformare il dato in un&apos;accusa verso ogni sito. Bisogna usarlo per leggere una dinamica: quando un&apos;interfaccia rende alcune opzioni piÃ¹ faticose di altre, sta giÃ  prendendo posizione.</p>
+<p>Il visual del carosello funziona come labirinto gentile: finestre, percorsi a ostacoli, uscite finte, una mano che cerca rifiuta o revoca. Ãˆ una buona metafora perchÃ© non rappresenta il dark pattern come qualcosa di aggressivo. Spesso Ã¨ proprio la sua gentilezza apparente a renderlo efficace.</p>
+<p>Una scelta simmetrica non significa che tutti i pulsanti debbano essere identici in ogni dettaglio. Significa che accettare, rifiutare, modificare e revocare devono essere comparabili, comprensibili e accessibili. La chiarezza Ã¨ parte del consenso, non un extra estetico.</p>
+<p>Alla fine la domanda Ã¨ molto pratica: quale pulsante guardi per primo? Se il design lo ha giÃ  deciso per te, forse il consenso non Ã¨ cosÃ¬ libero come sembra.</p>
+<p>Per questo il tema non riguarda soltanto la privacy. Riguarda la qualitÃ  delle scelte che un&apos;interfaccia rende possibili. Un consenso ben progettato dovrebbe lasciarti capire, cambiare idea e tornare indietro senza punirti con complessitÃ  aggiuntiva.</p>
+<p>Ãˆ una soglia minima di rispetto. Se un servizio ha bisogno del consenso, dovrebbe renderlo comprensibile anche quando l&apos;utente ha fretta, Ã¨ distratto o non conosce il linguaggio legale. Altrimenti non sta informando: sta approfittando dell&apos;attrito.</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>arXiv, preprint su cookie banner e dark pattern, 2026-03-23.</li>
+<li>GDPR/CCPA come contesto regolatorio.</li>
+<li>Nota editoriale: preprint; usare i dati con cautela e distinguere casi misurati da generalizzazioni.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+    <item>
+      <title>Accessibile vuol dire anche onesto?</title>
+      <link>https://vittoriocutowl.github.io/redazione-substack-feed/articles/accessibile-vuol-dire-anche-onesto</link>
+      <guid isPermaLink="false">POST 17</guid>
+      <pubDate>Wed, 08 Jul 2026 07:07:00 GMT</pubDate>
+      <description><![CDATA[Timer, autoplay e informazioni nascoste non sono solo fastidi: possono ridurre controllo e aumentare carico cognitivo.]]></description>
+      <content:encoded><![CDATA[<figure><img src="https://vittoriocutowl.github.io/redazione-substack-feed/figma-post-17-accessibile-vuol-dire-anche-onesto.png" alt="Accessibile vuol dire anche onesto" /></figure>
+<h1>Accessibile vuol dire anche onesto?</h1>
+<p>Di solito pensiamo all&apos;accessibilitÃ  come a un requisito per rendere un&apos;interfaccia usabile. Il post â€œAccessibile vuol dire anche onesto?â€ spinge la domanda piÃ¹ avanti: un&apos;interfaccia accessibile puÃ² anche aiutare a riconoscere quando una scelta Ã¨ manipolata?</p>
+<p>Il figma-map cita un lavoro arXiv / CHI 2026 che collega accessibilitÃ  e deceptive pattern. I pattern indicati nel materiale sono tre: countdown timer, autoplay e hidden information. Non sono solo fastidi. Possono aumentare carico cognitivo, ridurre controllo, rendere meno prevedibile ciÃ² che succede e spingere decisioni affrettate.</p>
+<p>Questo cambia il modo in cui leggiamo le linee guida. Le WCAG vengono spesso trattate come lista tecnica: contrasto, tastiera, etichette, pause, struttura. Ma dietro molti criteri c&apos;Ã¨ una domanda piÃ¹ ampia: l&apos;utente riesce a percepire, capire, controllare e prevedere l&apos;interfaccia?</p>
+<p>Un countdown aggressivo puÃ² mettere pressione. L&apos;autoplay puÃ² togliere controllo, soprattutto se audio o movimento partono senza richiesta. Informazioni nascoste possono rendere una scelta meno consapevole. In tutti questi casi, accessibilitÃ  e onestÃ  si incontrano: ridurre barriere significa anche ridurre spinte opache.</p>
+<p>Il caveat del materiale parla di analisi euristica. Quindi non va presentata come prova definitiva che ogni pattern citato sia sempre illegittimo. Un timer puÃ² essere utile in certi contesti, l&apos;autoplay puÃ² avere funzioni specifiche, un&apos;informazione puÃ² essere progressivamente rivelata per non sovraccaricare. Il problema Ã¨ quando queste scelte riducono autonomia invece di aiutarla.</p>
+<p>Il visual del carosello immagina un&apos;interfaccia manipolativa smontata come oggetto fisico: timer disinnescato, autoplay bloccato, cassetto informativo aperto. Ãˆ una metafora forte perchÃ© mostra il lavoro del design responsabile: rendere visibile la meccanica, non solo lucidare la superficie.</p>
+<p>Per chi progetta prodotti digitali, la domanda UX diventa molto concreta: questa scelta aiuta l&apos;utente a decidere, o lo spinge mentre Ã¨ distratto? Se aumenta il carico proprio nel momento della decisione, forse non Ã¨ solo un problema di conversione. Ãˆ un problema di rispetto.</p>
+<p>Accessibile, in questo senso, non significa soltanto â€œcompatibile con piÃ¹ personeâ€. Significa leggibile, controllabile, prevedibile. Tre qualitÃ  tecniche che, messe insieme, somigliano molto a una forma di onestÃ .</p>
+<p>Ãˆ una prospettiva preziosa perchÃ© unisce due conversazioni spesso separate: compliance e fiducia. Se un&apos;interfaccia Ã¨ davvero prevedibile, non ha bisogno di sorprendere l&apos;utente nel momento sbagliato. Se Ã¨ controllabile, non deve forzare una scelta. Se Ã¨ leggibile, non deve nascondere le conseguenze.</p>
+<p>Per questo l&apos;accessibilitÃ  puÃ² diventare anche una lente etica, senza trasformarsi in predica. Chiede semplicemente che l&apos;utente abbia abbastanza tempo, informazioni e controllo per capire cosa sta facendo. Ãˆ poco spettacolare, ma cambia moltissimo.</p>
+<p>E rende l&apos;interfaccia piÃ¹ giusta anche quando nessuno la chiama accessibilitÃ .</p>
+<h2>Fonti e caveat</h2>
+<ul>
+<li>arXiv / CHI 2026, lavoro su accessibilitÃ  e deceptive pattern.</li>
+<li>W3C WAI come contesto.</li>
+<li>Nota editoriale: analisi euristica; valutare i pattern nel contesto specifico prima di trarre conclusioni normative.</li>
+</ul>]]></content:encoded>
+      <category>figma_backfill</category>
+    </item>
+  </channel>
+</rss>
+
